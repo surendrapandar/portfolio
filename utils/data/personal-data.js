@@ -12,7 +12,7 @@ export const personalData = {
     "Tech, Teaching and Talking are my passion. I love to share my knowledge and experience with the world 🌍.",
   email: "surendrachoudhary2976@gmail.com",
   phone: "Can be provided on request",
-  address: "In js code ",
+  address: "Jaipur, Rajasthan, India",
   github: "https://github.com/surendrapandar",
   facebook: "https://www.facebook.com/abusaid.riyaz/",
   youtube: "https://www.youtube.com/@surendrapandar",
