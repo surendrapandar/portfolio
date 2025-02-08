@@ -1,36 +1,98 @@
-import { projectsData } from "@/utils/data/projects-data";
-import ProjectCard from "./project-card";
+import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { BsGithub } from "react-icons/bs";
+import { FiExternalLink } from "react-icons/fi";
 
-const Projects = () => {
+const projects = [
+  {
+    title: "AI-Powered Chat Application",
+    description:
+      "Real-time chat application with AI integration for smart responses and content moderation",
+    image: "/projects/project1.jpg",
+    tech: ["Next.js", "OpenAI", "Socket.io", "TailwindCSS"],
+    github: "https://github.com/yourusername/project1",
+    demo: "https://project1-demo.com",
+  },
+  {
+    title: "E-Commerce Platform",
+    description:
+      "Full-featured e-commerce solution with AI-powered product recommendations",
+    image: "/projects/project2.jpg",
+    tech: ["React", "Node.js", "MongoDB", "Stripe"],
+    github: "https://github.com/yourusername/project2",
+    demo: "https://project2-demo.com",
+  },
+  {
+    title: "AI Content Generator",
+    description:
+      "Content generation platform using advanced AI models for various content types",
+    image: "/projects/project3.jpg",
+    tech: ["Python", "FastAPI", "React", "GPT-3"],
+    github: "https://github.com/yourusername/project3",
+    demo: "https://project3-demo.com",
+  },
+];
+
+function Projects() {
   return (
-    <div id="projects" className="relative z-50  my-12 lg:my-24">
-      <div className="sticky top-10">
-        <div className="w-[80px] h-[80px] bg-violet-100 rounded-full absolute -top-3 left-0 translate-x-1/2 filter blur-3xl  opacity-30"></div>
-        <div className="flex items-center justify-start relative">
-          <span className="bg-[#1a1443] absolute left-0  w-fit text-white px-5 py-3 text-xl rounded-md">
-            My Tiny Startups 😉
-          </span>
-          <span className="w-full h-[2px] bg-[#1a1443]"></span>
-        </div>
-      </div>
-
-      <div className="pt-24">
-        <div className="flex flex-col gap-6">
-          {projectsData.slice(0, 4).map((project, index) => (
+    <section className="py-20 bg-gray-900">
+      <div className="container mx-auto px-4">
+        <h2 className="text-4xl font-bold text-center text-white mb-12">
+          My Work
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {projects.map((project, index) => (
             <div
-              id={`sticky-card-${index + 1}`}
               key={index}
-              className="sticky-card w-full mx-auto max-w-2xl sticky"
+              className="bg-gray-800 rounded-lg overflow-hidden shadow-lg"
             >
-              <div className="box-border flex items-center justify-center rounded shadow-[0_0_30px_0_rgba(0,0,0,0.3)] transition-all duration-[0.5s]">
-                <ProjectCard project={project} />
+              <div className="relative h-48">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-white mb-2">
+                  {project.title}
+                </h3>
+                <p className="text-gray-300 mb-4">{project.description}</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tech.map((tech, i) => (
+                    <span
+                      key={i}
+                      className="bg-blue-500 text-white text-sm px-2 py-1 rounded"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex space-x-4">
+                  <Link
+                    href={project.github}
+                    className="text-white hover:text-blue-500 transition-colors"
+                    target="_blank"
+                  >
+                    <BsGithub size={24} />
+                  </Link>
+                  <Link
+                    href={project.demo}
+                    className="text-white hover:text-blue-500 transition-colors"
+                    target="_blank"
+                  >
+                    <FiExternalLink size={24} />
+                  </Link>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
-};
+}
 
 export default Projects;

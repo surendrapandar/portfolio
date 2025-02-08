@@ -7,6 +7,8 @@ import Experience from "./components/homepage/experience";
 import HeroSection from "./components/homepage/hero-section";
 import Projects from "./components/homepage/projects";
 import Skills from "./components/homepage/skills";
+import WhyMe from "./components/homepage/why-me";
+import Reviews from "./components/homepage/reviews";
 
 async function getData() {
   const res = await fetch(
@@ -32,11 +34,13 @@ export default async function Home() {
   return (
     <>
       <HeroSection />
+      <WhyMe />
+      <Reviews />
       <AboutSection />
       <Experience />
       <Skills />
       <Projects />
-      <Education />
+      {/* <Education /> */}
       {/* <Blog blogs={blogs} /> */}
       <ContactSection />
     </>
