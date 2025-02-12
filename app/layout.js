@@ -7,6 +7,7 @@ import Navbar from "./components/navbar";
 import "./css/card.scss";
 import "./css/globals.scss";
 import ScrollToTop from "./components/helper/scroll-to-top";
+import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -26,6 +27,10 @@ export default function RootLayout({ children }) {
           <ScrollToTop />
         </main>
         <Footer />
+        <Script
+          src="https://widget.senja.io/widget/73033569-988a-46f5-820f-b7f180948ba0/platform.js"
+          strategy="afterInteractive"
+        />
       </body>
       <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM} />
     </html>

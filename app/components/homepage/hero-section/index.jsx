@@ -1,6 +1,8 @@
 // @flow strict
 
+import { Button } from "@/components/ui/button";
 import { personalData } from "@/utils/data/personal-data";
+import { CalendarFoldIcon, CalendarRange } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
@@ -25,33 +27,27 @@ function HeroSection() {
         <div className="max-w-5xl mx-auto space-y-12">
           {/* Main heading */}
           <h1 className="text-4xl md:text-6xl lg:text-8xl font-semibold text-center leading-tight">
-            Get your AI MVP built
+            Lanuch your AI MVP
             <br />
-            in 1 Month
+            in Just 1 Month
           </h1>
 
           <div className="flex flex-col items-center space-y-4 text-lg md:text-xl text-gray-400">
-            <ul className="space-y-3 list-none text-center">
-              <li className="flex items-center space-x-2">
-                <span className="w-2 h-2 bg-blue-500 rounded-full inline-block"></span>
-                <span>Bring your idea to life within 1 month</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <span className="w-2 h-2 bg-blue-500 rounded-full inline-block"></span>
-                <span>Affordable Pricing & clear communication</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <span className="w-2 h-2 bg-blue-500 rounded-full inline-block"></span>
-                <span>No extra effort</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <span className="w-2 h-2 bg-blue-500 rounded-full inline-block"></span>
-                <span>Modern technology for the best experience</span>
-              </li>
-            </ul>
+            <p className="text-center max-w-lg">
+              With a budget-friendly and amzing tech, we'll craft, build, and
+              bring your idea to life within 1 month.
+            </p>
           </div>
         </div>
       </div>
+      <Button className="bg-[#16f2b3] hover:bg-[#37e0b0] rounded-3xl px-10 py-6 mt-8 flex justify-center shadow-md transform transition-transform hover:scale-105">
+        <Link className="flex items-center gap-3" href="/contact">
+          <CalendarRange className="text-gray-700 text-2xl" />
+          <span className="text-gray-700 text-2xl font-semibold">
+            Book a free call
+          </span>
+        </Link>
+      </Button>
     </section>
   );
 }

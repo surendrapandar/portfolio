@@ -36,10 +36,10 @@ export default async function Home() {
       <HeroSection />
       <WhyMe />
       <Reviews />
-      <AboutSection />
-      <Experience />
-      <Skills />
+      {/* <AboutSection /> */}
+      {/* <Experience /> */}
       <Projects />
+      <Skills />
       {/* <Education /> */}
       {/* <Blog blogs={blogs} /> */}
       <ContactSection />

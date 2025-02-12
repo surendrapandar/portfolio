@@ -1,26 +1,21 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { BsGithub } from "react-icons/bs";
 import { FiExternalLink } from "react-icons/fi";
 
 const projects = [
   {
-    title: "AI-Powered Chat Application",
+    title: "Writeon",
     description:
-      "Real-time chat application with AI integration for smart responses and content moderation",
-    image: "/projects/project1.jpg",
-    tech: ["Next.js", "OpenAI", "Socket.io", "TailwindCSS"],
-    github: "https://github.com/yourusername/project1",
-    demo: "https://project1-demo.com",
+      "AI Powered Tool to Build Your LinkedIn Brand & Audience Effortlessly!",
+    image: "/writeon.png",
+    demo: "https://www.writeon.site/",
   },
   {
     title: "E-Commerce Platform",
     description:
       "Full-featured e-commerce solution with AI-powered product recommendations",
     image: "/projects/project2.jpg",
-    tech: ["React", "Node.js", "MongoDB", "Stripe"],
-    github: "https://github.com/yourusername/project2",
     demo: "https://project2-demo.com",
   },
   {
@@ -28,8 +23,6 @@ const projects = [
     description:
       "Content generation platform using advanced AI models for various content types",
     image: "/projects/project3.jpg",
-    tech: ["Python", "FastAPI", "React", "GPT-3"],
-    github: "https://github.com/yourusername/project3",
     demo: "https://project3-demo.com",
   },
 ];
@@ -38,52 +31,37 @@ function Projects() {
   return (
     <section className="py-20 bg-gray-900">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center text-white mb-12">
+        <h2 className="text-4xl font-extrabold text-center text-white mb-12">
           My Work
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-gray-800 rounded-lg overflow-hidden shadow-lg"
+              className="relative bg-gray-800 rounded-xl overflow-hidden shadow-2xl hover:shadow-xl transition-all duration-300 ease-in-out transform hover:scale-105"
             >
-              <div className="relative h-48">
+              <div className="relative h-72 overflow-hidden">
                 <Image
                   src={project.image}
                   alt={project.title}
-                  fill
-                  className="object-cover"
+                  layout="fill"
+                  // objectFit="cover"
+                  className="transition-transform duration-300 transform hover:scale-110"
                 />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-white mb-2">
+              <div className="p-6 flex flex-col justify-between">
+                <h3 className="text-2xl font-bold text-white mb-4">
                   {project.title}
                 </h3>
-                <p className="text-gray-300 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="bg-blue-500 text-white text-sm px-2 py-1 rounded"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex space-x-4">
-                  <Link
-                    href={project.github}
-                    className="text-white hover:text-blue-500 transition-colors"
-                    target="_blank"
-                  >
-                    <BsGithub size={24} />
-                  </Link>
+                <p className="text-gray-300 mb-6">{project.description}</p>
+                <div className="flex justify-between items-center">
                   <Link
                     href={project.demo}
-                    className="text-white hover:text-blue-500 transition-colors"
+                    className="text-white hover:text-blue-500 transition-all duration-200 flex items-center space-x-2"
                     target="_blank"
                   >
-                    <FiExternalLink size={24} />
+                    <span className="text-lg">Visit {project.title}</span>
+                    <FiExternalLink size={20} />
                   </Link>
                 </div>
               </div>
