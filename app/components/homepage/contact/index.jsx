@@ -15,16 +15,16 @@ export default function ContactSection() {
     <div id="contact" className="relative py-16 lg:py-24">
       <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          {/* <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
             Let&apos;s Connect
           </h2>
           <p className="mt-4 text-lg text-gray-300">
             Ready to turn your idea into reality? Let&apos;s build something
             amazing together.
-          </p>
+          </p> */}
         </div>
 
-        <div className="mt-16">
+        {/* <div className="mt-16">
           <div className="rounded-2xl bg-white/5 p-8 backdrop-blur-sm border w-[800px] h-[400px] border-white/10">
             <div className="space-y-6">
               <div className="flex items-center gap-4">
@@ -101,11 +101,11 @@ export default function ContactSection() {
               </Button>
             </div>
 
-            {/* <Button className="rounded-full bg-[#16f2b3] mt-10">
+            <Button className="rounded-full bg-[#16f2b3] mt-10">
               Add your start
-            </Button> */}
+            </Button>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
