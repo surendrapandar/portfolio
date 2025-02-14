@@ -1,92 +1,112 @@
-// @flow strict
+"use client";
+
 import { personalData } from "@/utils/data/personal-data";
 import Link from "next/link";
 import { BiLogoLinkedin } from "react-icons/bi";
 import { CiLocationOn } from "react-icons/ci";
-import { FaFacebook, FaStackOverflow } from "react-icons/fa";
-import { FaXTwitter, FaYoutube } from "react-icons/fa6";
+import { FaYoutube } from "react-icons/fa6";
+import { FaXTwitter } from "react-icons/fa6";
 import { IoLogoGithub, IoMdCall } from "react-icons/io";
 import { MdAlternateEmail } from "react-icons/md";
-import ContactWithCaptcha from "./contact-with-captcha";
-import ContactWithoutCaptcha from "./contact-without-captcha";
+import { Button } from "@/components/ui/button";
 
-function ContactSection() {
+export default function ContactSection() {
   return (
-    <div id="contact" className="my-12 lg:my-16 relative mt-24 text-white">
-      <div className="hidden lg:flex flex-col items-center absolute top-24 -right-8">
-        <span className="bg-[#1a1443] w-fit text-white rotate-90 p-2 px-5 text-xl rounded-md">
-          CONTACT
-        </span>
-        <span className="h-36 w-[2px] bg-[#1a1443]"></span>
-      </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-        {/* {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY &&
-        process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY ? (
-          <ContactWithCaptcha />
-        ) : (
-          <ContactWithoutCaptcha />
-        )} */}
+    <div id="contact" className="relative py-16 lg:py-24">
+      <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Let&apos;s Connect
+          </h2>
+          <p className="mt-4 text-lg text-gray-300">
+            Ready to turn your idea into reality? Let&apos;s build something
+            amazing together.
+          </p>
+        </div>
 
-        <div className="lg:w-3/4 ">
-          <div className="flex flex-col gap-5 lg:gap-9">
-            <p className="text-sm md:text-xl flex items-center gap-3">
-              <MdAlternateEmail
-                className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={36}
-              />
-              <span>{personalData.email}</span>
-            </p>
-            <p className="text-sm md:text-xl flex items-center gap-3">
-              <IoMdCall
-                className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={36}
-              />
-              <span>{personalData.phone}</span>
-            </p>
-            <p className="text-sm md:text-xl flex items-center gap-3">
-              <CiLocationOn
-                className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={36}
-              />
-              <span>{personalData.address}</span>
-            </p>
-          </div>
-          <div className="mt-8 lg:mt-16 flex items-center gap-5 lg:gap-10">
-            <Link target="_blank" href={personalData.github}>
-              <IoLogoGithub
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </Link>
-            <Link target="_blank" href={personalData.linkedIn}>
-              <BiLogoLinkedin
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </Link>
-            <Link target="_blank" href={personalData.twitter}>
-              <FaXTwitter
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </Link>
-            {/* <Link target="_blank" href={personalData.stackOverflow}>
-              <FaStackOverflow
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </Link> */}
-            <Link target="_blank" href={personalData.youtube}>
-              <FaYoutube
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#16f2b3] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
-                size={48}
-              />
-            </Link>
+        <div className="mt-16">
+          <div className="rounded-2xl bg-white/5 p-8 backdrop-blur-sm border w-[800px] h-[400px] border-white/10">
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#16f2b3]/10">
+                  <MdAlternateEmail className="h-6 w-6 text-[#16f2b3]" />
+                </div>
+                <div className="text-white">
+                  <p className="text-sm font-medium">Email</p>
+                  <p className="mt-1">{personalData.email}</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#16f2b3]/10">
+                  <IoMdCall className="h-6 w-6 text-[#16f2b3]" />
+                </div>
+                <div className="text-white">
+                  <p className="text-sm font-medium">Phone</p>
+                  <p className="mt-1">{personalData.phone}</p>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#16f2b3]/10">
+                  <CiLocationOn className="h-6 w-6 text-[#16f2b3]" />
+                </div>
+                <div className="text-white">
+                  <p className="text-sm font-medium">Location</p>
+                  <p className="mt-1">{personalData.address}</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 flex gap-4 justify-left">
+              <Button
+                variant="outline"
+                size="icon"
+                className="h-10 w-10 rounded-full border-white/10 bg-white/5 hover:bg-[#16f2b3]hover:text-white"
+                asChild
+              >
+                <Link href={personalData.github} target="_blank">
+                  <IoLogoGithub className="h-5 w-5" />
+                </Link>
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                className="h-10 w-10 rounded-full border-white/10 bg-white/5 hover:bg-[#16f2b3] hover:text-white"
+                asChild
+              >
+                <Link href={personalData.linkedIn} target="_blank">
+                  <BiLogoLinkedin className="h-5 w-5" />
+                </Link>
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                className="h-10 w-10 rounded-full border-white/10 bg-white/5 hover:bg-[#16f2b3]hover:text-white"
+                asChild
+              >
+                <Link href={personalData.twitter} target="_blank">
+                  <FaXTwitter className="h-5 w-5" />
+                </Link>
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                className="h-10 w-10 rounded-full border-white/10 bg-white/5 hover:bg-[#16f2b3]hover:text-white"
+                asChild
+              >
+                <Link href={personalData.youtube} target="_blank">
+                  <FaYoutube className="h-5 w-5" />
+                </Link>
+              </Button>
+            </div>
+
+            {/* <Button className="rounded-full bg-[#16f2b3] mt-10">
+              Add your start
+            </Button> */}
           </div>
         </div>
       </div>
     </div>
   );
 }
-
-export default ContactSection;

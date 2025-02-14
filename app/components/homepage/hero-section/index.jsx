@@ -40,7 +40,7 @@ function HeroSection() {
           </div>
         </div>
       </div>
-      <Button className="bg-[#16f2b3] hover:bg-[#37e0b0] rounded-3xl px-10 py-6 mt-8 flex justify-center shadow-md transform transition-transform hover:scale-105">
+      <Button className="bg-[#16f2b3] hover:bg-[#37e0b0]  px-10 py-6 rounded-[10px] mt-8 flex justify-center shadow-md transform transition-transform hover:scale-105">
         <Link className="flex items-center gap-3" href="/contact">
           <CalendarRange className="text-gray-700 text-2xl" />
           <span className="text-gray-700 text-2xl font-semibold">
