@@ -19,7 +19,10 @@ function Reviews() {
   }, []);
 
   return (
-    <section className="relative z-50 border-t my-12 lg:my-24 border-[#25213b] ">
+    <section
+      id="customers"
+      className="relative z-50 border-t my-12 lg:my-24 border-[#25213b] "
+    >
       <Image
         src="/section.svg"
         alt="Hero"
