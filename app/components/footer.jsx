@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { IoLogoGithub } from "react-icons/io";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaXTwitter, FaYoutube } from "react-icons/fa6";
 import { BiLogoLinkedin } from "react-icons/bi";
-import { FaYoutube } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 import { personalData } from "@/utils/data/personal-data";
+import { CalendarRange, Rocket } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -15,17 +15,28 @@ export default function Footer() {
         </div>
 
         <div className="text-center max-w-3xl mx-auto">
+          <div className="flex justify-center mb-6">
+            <Rocket className="w-12 h-12 text-[#16f2b3] animate-bounce" />
+          </div>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
-            Ready to take <span className="text-violet-500">your digital</span>{" "}
-            presence to the next level?
+            Ready to Launch your{" "}
+            <span className="text-[#16f2b3] hover:text-[#37e0b0]">AI MVP</span>{" "}
+            ?
           </h2>
           <p className="mt-4 text-lg text-gray-300">
-            Reach out to me today and let's discuss how I can help your achieve
-            your goals.
+            Let's discuss how I can bring your project to life. Let's have a
+            quick 30 minutes call to discuss the details.
           </p>
-          <Button className="mt-8 rounded-full bg-white/5 border border-white/10 hover:bg-[#16f2b3] hover:text-white">
-            Let's get in touch
-          </Button>
+          <div className="flex justify-center">
+            <Button className="bg-[#16f2b3] hover:bg-[#37e0b0] px-10 py-6 rounded-[10px] mt-8 shadow-md transform transition-transform hover:scale-105">
+              <Link className="flex items-center gap-3" href="/contact">
+                <CalendarRange className="text-gray-700 text-2xl" />
+                <span className="text-gray-700 text-2xl font-semibold">
+                  Let's Talk
+                </span>
+              </Link>
+            </Button>
+          </div>
         </div>
 
         <div className="flex flex-col md:flex-row items-center justify-between mt-16">
@@ -33,13 +44,6 @@ export default function Footer() {
             © 2025{" "}
             <Link href="/" className="text-[#16f2b3]">
               Surendra Pandar
-            </Link>
-            {" | "}
-            <Link
-              href="https://github.com/yourusername"
-              className="hover:text-[#16f2b3]"
-            >
-              Source Code
             </Link>
           </p>
 

@@ -29,7 +29,7 @@ function Reviews() {
       />
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center text-white mb-24 mt-10">
-          People Love Working With US
+          People <span className="text-[#16f2b3]">Love</span> Working With US
         </h2>
         <div className="max-w-6xl mx-auto ">
           <div

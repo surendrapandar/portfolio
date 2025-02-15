@@ -41,7 +41,7 @@ function WhyMe() {
       <div className="absolute inset-0 opacity-50"></div>
       <div className="container mx-auto px-4 relative z-10">
         <h2 className="text-4xl font-bold text-center text-white mb-12">
-          Why Choose US?
+          <span className="text-[#16f2b3]">Why</span> Choose US?
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
