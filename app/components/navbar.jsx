@@ -75,7 +75,7 @@ function Navbar() {
               >
                 <CalendarRange className="text-gray-700 text-lg" />
                 <span className="text-gray-700  text-base font-semibold">
-                  Let's Build
+                  Let&apos;s Build
                 </span>
               </Link>
             </li>

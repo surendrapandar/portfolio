@@ -24,8 +24,8 @@ export default function Footer() {
             ?
           </h2>
           <p className="mt-4 text-lg text-gray-300">
-            Let's discuss how I can bring your project to life. Let's have a
-            quick 30 minutes call to discuss the details.
+            Let&apos;s discuss how I can bring your project to life. Let&apos;s
+            have a quick 30 minutes call to discuss the details.
           </p>
           <div className="flex justify-center">
             <Button className="bg-[#16f2b3] hover:bg-[#37e0b0] px-10 py-6 rounded-[10px] mt-8 shadow-md transform transition-transform hover:scale-105">

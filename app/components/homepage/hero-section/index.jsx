@@ -47,6 +47,9 @@ function HeroSection() {
               Transform your vision into reality with affordable pricing - from
               concept to launch in just 30 days.
             </p>
+            <div className="text-xl leading-relaxed">
+              Let&apos;s connect and explore how we can work together.
+            </div>
           </div>
         </div>
       </div>
@@ -57,7 +60,7 @@ function HeroSection() {
         >
           <CalendarRange className="text-gray-700 text-2xl" />
           <span className="text-gray-700 text-2xl font-semibold">
-            Let's Talk
+            Let&apos;s Talk
           </span>
         </Link>
       </Button>
