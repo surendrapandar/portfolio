@@ -42,14 +42,14 @@ function HeroSection() {
             </span>
           </h1>
 
-          <div className="flex flex-col items-center space-y-4 text-lg md:text-xl text-gray-400">
+          <div className="flex flex-col items-center  space-y-4 text-lg md:text-xl text-gray-400">
             <p className="text-center max-w-lg">
               Transform your vision into reality with affordable pricing - from
               concept to launch in just 30 days.
             </p>
-            <div className="text-xl leading-relaxed">
+            {/* <div className="text-xl leading-relaxed justify-center text-center">
               Let&apos;s connect and explore how we can work together.
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
