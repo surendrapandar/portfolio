@@ -7,7 +7,7 @@ import Link from "next/link";
 
 function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-white ">
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-white -m-10 ">
       <Image
         src="/hero.svg"
         alt="Hero"
@@ -16,10 +16,10 @@ function HeroSection() {
         className="absolute -top-[98px] -z-10"
       />
 
-      <div className="container mx-auto px-4  relative z-10">
+      <div className="container mx-auto px-4  relative z-10 ">
         <div className="max-w-5xl mx-auto space-y-12">
           {/* Main heading */}
-          <h1 className="text-4xl md:text-6xl lg:text-8xl font-semibold text-center leading-tight ">
+          <h1 className="text-5xl md:text-6xl lg:text-8xl font-semibold text-center leading-tight ">
             Lanuch your{" "}
             <span className="text-[#16f2b3] hover:text-[#37e0b0]">AI MVP</span>
             <div className="mb-2" />
@@ -43,7 +43,7 @@ function HeroSection() {
           </h1>
 
           <div className="flex flex-col items-center  space-y-4 text-lg md:text-xl text-gray-400">
-            <p className="text-center max-w-lg">
+            <p className="text-center text-2xl max-w-lg mx-5">
               Transform your vision into reality with affordable pricing - from
               concept to launch in just 30 days.
             </p>
