@@ -70,7 +70,7 @@ function Navbar() {
             <li className="w-full md:w-auto px-3 md:px-0 md:ml-2">
               <Link
                 className="flex items-center justify-center gap-2 bg-[#16f2b3] hover:bg-[#37e0b0] px-4 py-1.5 rounded-xl transition-all duration-300 transform hover:scale-105"
-                href="https://calendly.com/surendrachoudhary2976/30min"
+                href="https://calendly.com/surendrapandar/30min"
                 onClick={() => setIsMenuOpen(false)}
               >
                 <CalendarRange className="text-gray-700 text-lg" />

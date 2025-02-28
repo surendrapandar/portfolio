@@ -31,7 +31,7 @@ export default function Footer() {
             <Button className="bg-[#16f2b3] hover:bg-[#37e0b0] px-10 py-6 rounded-[10px] mt-8 shadow-md transform transition-transform hover:scale-105">
               <Link
                 className="flex items-center gap-3"
-                href="https://calendly.com/surendrachoudhary2976/30min"
+                href="https://calendly.com/surendrapandar/30min"
               >
                 <CalendarRange className="text-gray-700 text-2xl" />
                 <span className="text-gray-700 text-2xl font-semibold">
