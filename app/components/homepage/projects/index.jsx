@@ -23,7 +23,7 @@ const projects = [
     description:
       " A professional portfolio website to Showing your work in a professional way to get more noticed.",
     image: "/portfolio.png",
-    demo: "https://project3-demo.com",
+    demo: "https://surendrapandar.dev",
   },
 ];
 

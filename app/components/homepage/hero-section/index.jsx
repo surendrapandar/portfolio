@@ -1,11 +1,27 @@
-// @flow strict
+"use client";
 
 import { Button } from "@/components/ui/button";
 import { CalendarRange } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 function HeroSection() {
+  const [displayText, setDisplayText] = useState("AI MVP");
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setDisplayText((prev) => (prev === "AI MVP" ? "Product" : "AI MVP"));
+        setIsAnimating(false);
+      }, 500); // Half the interval for the fade-out part
+    }, 3000); // Switch every 3 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center text-white -m-10 ">
       <Image
@@ -21,7 +37,13 @@ function HeroSection() {
           {/* Main heading */}
           <h1 className="text-5xl md:text-6xl lg:text-8xl font-semibold text-center leading-tight ">
             Lanuch your{" "}
-            <span className="text-[#16f2b3] hover:text-[#37e0b0]">AI MVP</span>
+            <span
+              className={`text-[#16f2b3] hover:text-[#37e0b0] inline-block w-[350px] transition-opacity duration-500 ${
+                isAnimating ? "opacity-0" : "opacity-100"
+              }`}
+            >
+              {displayText}
+            </span>
             <div className="mb-2" />
             in Just{" "}
             <span className="relative inline-block">
