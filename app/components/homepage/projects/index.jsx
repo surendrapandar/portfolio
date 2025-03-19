@@ -10,6 +10,7 @@ const projects = [
       "AI Powered Tool to Build Your LinkedIn Brand & Audience Effortlessly!",
     image: "/writeon.png",
     demo: "https://www.writeon.site/",
+    type: "web",
   },
   {
     title: "Insayy",
@@ -17,6 +18,7 @@ const projects = [
       "Connect 1:1 with Professionals, Experts, and Influencers Who Inspire You.",
     image: "/insayy.png",
     demo: "https://www.insayy.com/",
+    type: "web",
   },
   {
     title: "FeedbackHub",
@@ -24,6 +26,7 @@ const projects = [
       "Build better products with real user feedback (not guesses🤨)",
     image: "/feedbackhub.png",
     demo: "https://feedbackhub.dev",
+    type: "web",
   },
   {
     title: "Solution App",
@@ -31,6 +34,7 @@ const projects = [
       "A mobile app for students to find solutions to their problems.",
     image: "/solutionapp.png",
     demo: "https://play.google.com/store/apps/details?id=com.rootankit.biharboardsolutionclass10",
+    type: "mobile",
   },
   {
     title: "Ghori Fashion Designer",
@@ -38,6 +42,7 @@ const projects = [
       "A mobile app provide complete Tutorials for learning Sewing from Basic to Advance",
     image: "/ghorifashiondesigner.png",
     demo: "https://play.google.com/store/apps/details?id=com.gfd.ghori_fashion",
+    type: "mobile",
   },
   {
     title: "Bullseye App",
@@ -45,10 +50,15 @@ const projects = [
       "App is design to provide all information regarding stock market at one place.",
     image: "/bullseyeapp.png",
     demo: "https://play.google.com/store/apps/details?id=com.rajan.bullseye",
+    type: "mobile",
   },
 ];
 
-function Projects() {
+function Projects({ filter }) {
+  const filteredProjects = filter
+    ? projects.filter((project) => project.type === filter)
+    : projects;
+
   return (
     <section id="ourwork" className="py-20 bg-gray-900">
       <div className="container mx-auto px-4">
@@ -56,7 +66,7 @@ function Projects() {
           Our Recent <span className="text-[#16f2b3]">Work</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {projects.map((project, index) => (
+          {filteredProjects.map((project, index) => (
             <div
               key={index}
               className="relative bg-gray-800 rounded-xl overflow-hidden shadow-2xl hover:shadow-xl transition-all duration-300 ease-in-out transform hover:scale-105"

@@ -20,7 +20,7 @@ export default function Footer() {
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight">
             Ready to Launch your{" "}
-            <span className="text-[#16f2b3] hover:text-[#37e0b0]">AI MVP</span>{" "}
+            <span className="text-[#16f2b3] hover:text-[#37e0b0]">Product</span>{" "}
             ?
           </h2>
           <p className="mt-4 text-lg text-gray-300">
