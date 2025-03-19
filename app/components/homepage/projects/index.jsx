@@ -19,11 +19,32 @@ const projects = [
     demo: "https://www.insayy.com/",
   },
   {
-    title: "Professional Portfolio",
+    title: "FeedbackHub",
     description:
-      " A professional portfolio website to Showing your work in a professional way to get more noticed.",
-    image: "/portfolio.png",
-    demo: "https://surendrapandar.dev",
+      "Build better products with real user feedback (not guesses🤨)",
+    image: "/feedbackhub.png",
+    demo: "https://feedbackhub.dev",
+  },
+  {
+    title: "Solution App",
+    description:
+      "A mobile app for students to find solutions to their problems.",
+    image: "/solutionapp.png",
+    demo: "https://play.google.com/store/apps/details?id=com.rootankit.biharboardsolutionclass10",
+  },
+  {
+    title: "Ghori Fashion Designer",
+    description:
+      "A mobile app provide complete Tutorials for learning Sewing from Basic to Advance",
+    image: "/ghorifashiondesigner.png",
+    demo: "https://play.google.com/store/apps/details?id=com.gfd.ghori_fashion",
+  },
+  {
+    title: "Bullseye App",
+    description:
+      "App is design to provide all information regarding stock market at one place.",
+    image: "/bullseyeapp.png",
+    demo: "https://play.google.com/store/apps/details?id=com.rajan.bullseye",
   },
 ];
 
