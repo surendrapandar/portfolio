@@ -46,7 +46,7 @@ export default function WebHeroSection() {
           <div className="flex flex-col items-center space-y-4 text-lg md:text-xl text-gray-400">
             <p className="text-center text-2xl max-w-lg mx-5">
               Specialized in creating powerful, scalable web applications. So
-              let's build your next big thing together.
+              let&apos;s build your next big thing together.
             </p>
           </div>
         </div>
