@@ -9,6 +9,7 @@ import Projects from "./components/homepage/projects";
 import Skills from "./components/homepage/skills";
 import WhyMe from "./components/homepage/why-me";
 import Reviews from "./components/homepage/reviews";
+import ProcessSection from "./(categories)/web-development/components/process-section";
 
 async function getData() {
   const res = await fetch(
@@ -40,6 +41,7 @@ export default async function Home() {
       {/* <Experience /> */}
       <Projects />
       <Skills />
+      <ProcessSection />
       {/* <Education /> */}
       {/* <Blog blogs={blogs} /> */}
       <ContactSection />

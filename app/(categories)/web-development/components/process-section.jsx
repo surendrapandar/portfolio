@@ -37,7 +37,7 @@ export default function ProcessSection() {
     <section className="py-20">
       <div className="container px-4 mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12">
-          Web Development Process
+          Development Process
         </h2>
         <div className="relative grid md:grid-cols-3 lg:grid-cols-5 gap-8">
           {developmentSteps.map((step, index) => (
