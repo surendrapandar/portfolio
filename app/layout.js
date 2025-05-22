@@ -11,11 +11,25 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Portfolio of Surendra Pandar - Software Developer",
-  description:
-    "I'm a software developer who loves to build applications. I have experience in building web applications using React, Next.js, and Node.js.",
+  title: "Surendra Pandar",
+  description: "Personal website of Surendra Pandar.",
+  openGraph: {
+    title: "Surendra Pandar",
+    description: ".",
+    url: "https://www.surendrapandar.dev",
+    siteName: "Surendra Pandar",
+    images: [
+      {
+        url: "https://i.ibb.co/XkYtcg6H/Mockup.png",
+        width: 1200,
+        height: 630,
+        alt: "Surendra Pandar OG Image",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
