@@ -41,7 +41,7 @@ export const metadata = {
   ],
   openGraph: {
     title: "Surendra Pandar",
-    description: ".",
+    description: "Building the future with code.",
     url: "https://www.surendrapandar.dev",
     siteName: "Surendra Pandar",
     images: [
@@ -52,7 +52,7 @@ export const metadata = {
         alt: "Surendra Pandar OG Image",
       },
     ],
-    locale: "en_US",
+
     type: "website",
   },
 };
