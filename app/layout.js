@@ -33,6 +33,12 @@ export default function RootLayout({ children }) {
         />
       </body>
       <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM} />
+      <Script
+        src="https://cloud.umami.is/script.js"
+        data-website-id="5f04c0d8-7f1d-4ac3-8251-37a6bdcbb787"
+        strategy="afterInteractive"
+        defer
+      />
     </html>
   );
 }
