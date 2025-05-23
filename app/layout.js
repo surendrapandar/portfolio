@@ -55,6 +55,28 @@ export const metadata = {
 
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Surendra Pandar",
+    description: "Building the future with code.",
+    creator: "@surendra_pandar", // Replace with your Twitter handle
+    images: ["https://i.ibb.co/XkYtcg6H/Mockup.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
+  alternates: {
+    canonical: "https://www.surendrapandar.dev",
+  },
 };
 export default function RootLayout({ children }) {
   return (
