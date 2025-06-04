@@ -9,14 +9,14 @@ const projects = [
     description:
       "AI Powered Tool to Build Your LinkedIn Brand & Audience Effortlessly!",
     image: "/writeon.png",
-    demo: "https://www.writeon.site/",
+    demo: "https://www.writeon.site",
   },
   {
-    title: "Insayy",
+    title: "AI Emoji Generator",
     description:
-      "Connect 1:1 with Professionals, Experts, and Influencers Who Inspire You.",
-    image: "/insayy.png",
-    demo: "https://www.insayy.com/",
+      "Generate emojis from text using AI. Just type your text and get emojis.",
+    image: "/emoji.jpg",
+    demo: "https://www.emojis.com",
   },
   {
     title: "FeedbackHub",
