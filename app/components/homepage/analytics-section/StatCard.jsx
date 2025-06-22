@@ -32,11 +32,14 @@ const StatCard = ({ stat, isVisible, index }) => {
       }`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
-      <div className={`relative bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border ${stat.borderColor} hover:border-opacity-50 transition-all duration-300`}>
-        <div className={`w-16 h-16 rounded-xl ${stat.bgColor} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+      <div
+        className={`relative bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border ${stat.borderColor} hover:border-opacity-50 transition-all duration-300`}
+      >
+        <div
+          className={`w-16 h-16 rounded-xl ${stat.bgColor} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
+        >
           <IconComponent className="w-8 h-8 text-white" />
         </div>
-
         <div className="mb-2">
           <span className="text-4xl font-bold text-white">
             <CountUpAnimation end={stat.value} isVisible={isVisible} />
@@ -44,22 +47,11 @@ const StatCard = ({ stat, isVisible, index }) => {
           {stat.value > 1000 && (
             <span className="text-2xl text-[#16f2b3] ml-1">+</span>
           )}
-        </div>
-
+        </div>{" "}
         <h3 className="text-lg font-semibold text-gray-300 mb-1">
           {stat.label}
         </h3>
         <p className="text-sm text-gray-500">{stat.description}</p>
-
-        <div className="mt-4 h-1 bg-gray-700 rounded-full overflow-hidden">
-          <div
-            className={`h-full bg-gradient-to-r ${stat.color} rounded-full transition-all duration-1000 ease-out`}
-            style={{
-              width: isVisible ? "100%" : "0%",
-              transitionDelay: `${index * 200 + 500}ms`,
-            }}
-          />
-        </div>
       </div>
     </div>
   );

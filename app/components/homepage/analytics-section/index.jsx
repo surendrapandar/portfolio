@@ -83,7 +83,8 @@ export default function AnalyticsSection() {
             Real-time metrics showcasing our commitment to delivering
             exceptional results
           </p>
-        </div>        {/* Stats Grid */}
+        </div>{" "}
+        {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {stats.map((stat, index) => (
             <StatCard
@@ -93,28 +94,8 @@ export default function AnalyticsSection() {
               index={index}
             />
           ))}
-        </div>{/* Trust Indicators */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <TrustCard 
-            Icon={Award}
-            title="Quality Assured"
-            description="Every project meets our high standards"
-            colorClass="bg-[#16f2b3]/10 text-[#16f2b3]"
-          />
-          <TrustCard 
-            Icon={Zap}
-            title="Fast Delivery"
-            description="Projects completed within timeline"
-            colorClass="bg-blue-500/10 text-blue-400"
-          />
-          <TrustCard 
-            Icon={TrendingUp}
-            title="Growing Success"
-            description="Continuous improvement and growth"
-            colorClass="bg-purple-500/10 text-purple-400"
-          />
         </div>
-
+        {/* Trust Indicators */}
         {/* Social Proof */}
         <div className="mt-16 text-center">
           <div className="inline-flex items-center gap-2 px-6 py-3 bg-gray-800/50 rounded-full border border-gray-700">
