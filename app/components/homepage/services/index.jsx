@@ -67,16 +67,6 @@ export default function OurServices() {
           );
         })}
       </div>
-
-      {/* Call to Action */}
-      <div className="text-center mt-16">
-        <button
-          className="px-8 py-4 rounded-full font-semibold text-gray-900 transition-all duration-300 hover:scale-105 hover:shadow-lg"
-          style={{ backgroundColor: "#16f2b3" }}
-        >
-          Get Started Today
-        </button>
-      </div>
     </div>
   );
 }
