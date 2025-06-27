@@ -41,11 +41,14 @@ const StatCard = ({ stat, isVisible, index }) => {
           <IconComponent className="w-8 h-8 text-white" />
         </div>
         <div className="mb-2">
-          <span className="text-4xl font-bold text-white">
+          <span className="text-5xl font-bold text-[#16f2b3]">
             <CountUpAnimation end={stat.value} isVisible={isVisible} />
           </span>
-          {stat.value > 1000 && (
-            <span className="text-2xl text-[#16f2b3] ml-1">+</span>
+          {stat.label.includes("Following") && stat.value >= 10 && (
+            <span className="text-5xl text-[#16f2b3] ml-0">K</span>
+          )}
+          {(stat.value >= 3 || stat.label.includes("Following")) && (
+            <span className="text-5xl text-[#16f2b3]  ml-1">+</span>
           )}
         </div>{" "}
         <h3 className="text-lg font-semibold text-gray-300 mb-1">

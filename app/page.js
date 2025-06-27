@@ -7,7 +7,7 @@ import Experience from "./components/homepage/experience";
 import HeroSection from "./components/homepage/hero-section";
 import Projects from "./components/homepage/projects";
 import Skills from "./components/homepage/skills";
-import WhyMe from "./components/homepage/why-me";
+
 import Reviews from "./components/homepage/reviews";
 import OurServices from "./components/homepage/services";
 import ProcessSteps from "./components/homepage/Process of our work";
@@ -40,7 +40,6 @@ export default async function Home() {
       <HeroSection />
       <AnalyticsSection />
 
-      <WhyMe />
       <Reviews />
       <Projects />
       <ProcessSteps />

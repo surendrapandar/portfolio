@@ -34,6 +34,24 @@ function HeroSection() {
 
       <div className="container mx-auto px-4  relative z-10 ">
         <div className="max-w-5xl mx-auto space-y-12">
+          {/* Social proof section */}
+          <div className="text-center mt-2">
+            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gray-800/50 rounded-full border border-gray-700">
+              <div className="flex -space-x-2">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <div
+                    key={i}
+                    className="w-8 h-8 rounded-full bg-gradient-to-br from-[#16f2b3] to-blue-500 border-2 border-gray-800 flex items-center justify-center text-xs font-bold text-gray-900"
+                  >
+                    {i}
+                  </div>
+                ))}
+              </div>
+              <span className="text-gray-300 ml-2">
+                Join 20+ satisfied clients
+              </span>
+            </div>
+          </div>
           {/* Main heading */}
           <h1 className="text-5xl md:text-6xl lg:text-8xl font-semibold text-center leading-tight ">
             Lanuch your{" "}
