@@ -1,60 +1,55 @@
+"use client";
+
 import React from "react";
-import {
-  BsCheckCircleFill,
-  BsRocket,
-  BsLightning,
-  BsHeadset,
-  BsPeople,
-} from "react-icons/bs";
-import Image from "next/image";
+import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
 
 function WhyMe() {
-  const reasons = [
-    {
-      title: "Proven Track Record",
-      description:
-        "Helped 5+ Founders to launch their Product/MVP with 10+ Complete Projects delivered",
-      icon: <BsRocket size={32} className="text-[#16f2b3]" />,
-    },
-    {
-      title: "Speed with Quality",
-      description:
-        "Maintain Quality with speed, Build fast without compromising on quality",
-      icon: <BsLightning size={32} className="text-[#16f2b3]" />,
-    },
-    {
-      title: "Post-Launch Support",
-      description:
-        "Here to help you even after the launch, Launch day is just the beginning",
-      icon: <BsHeadset size={32} className="text-[#16f2b3]" />,
-    },
-    {
-      title: "Non-Technical Friendly",
-      description:
-        "Help you understand everything even if you are not a technical person",
-      icon: <BsPeople size={32} className="text-[#16f2b3]" />,
-    },
+  const statsData = [
+    { value: 11, suffix: "+", label: "Projects Completed" },
+    { value: 8, suffix: "+", label: "Happy Clients" },
+    { value: 20, suffix: "K+", label: "Following On Social Media" },
+    { value: 3, suffix: "+", label: "Years of Experience" },
   ];
 
-  return (
-    <section id="whyus" className="py-20 relative">
-      <div className="absolute inset-0 opacity-50"></div>
-      <div className="container mx-auto px-4 relative z-10">
-        <h2 className="text-4xl font-bold text-center text-white mb-12">
-          <span className="text-[#16f2b3]">Why</span> Choose US?
-        </h2>
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Animate only once
+    threshold: 0.3, // Trigger when 30% of the element is in view
+  });
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {reasons.map((reason, index) => (
+  return (
+    <section id="whyus" className="py-16 md:py-20 bg-[#1a1a2e]">
+      <div className="container mx-auto px-4 text-center">
+        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          WHY US
+        </h2>
+        <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-12 md:mb-16">
+          Because we are not just developers, we are your partners in success.
+          we have a proven track record of delivering exceptional results for
+          our clients.
+        </p>
+
+        <div
+          ref={ref}
+          className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"
+        >
+          {statsData.map((stat, index) => (
             <div
               key={index}
-              className="flex flex-col p-6  rounded-lg border border-[#2a2a2a] hover:border-[#16f2b3] transition-all duration-300"
+              className="flex flex-col items-center justify-center p-4"
             >
-              <div className="mb-4">{reason.icon}</div>
-              <h3 className="text-xl font-semibold text-white mb-2">
-                {reason.title}
-              </h3>
-              <p className="text-gray-400">{reason.description}</p>
+              <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2">
+                {inView ? (
+                  <CountUp
+                    end={stat.value}
+                    duration={2.5}
+                    suffix={stat.suffix}
+                  />
+                ) : (
+                  `0${stat.suffix}`
+                )}
+              </div>
+              <p className="text-sm md:text-base text-gray-400">{stat.label}</p>
             </div>
           ))}
         </div>

@@ -9,21 +9,42 @@ const projects = [
     description:
       "AI Powered Tool to Build Your LinkedIn Brand & Audience Effortlessly!",
     image: "/writeon.png",
-    demo: "https://www.writeon.site/",
+    demo: "https://www.writeon.site",
   },
   {
-    title: "Insayy",
+    title: "AI Emoji Generator",
     description:
-      "Connect 1:1 with Professionals, Experts, and Influencers Who Inspire You.",
-    image: "/insayy.png",
-    demo: "https://www.insayy.com/",
+      "Generate emojis from text using AI. Just type your text and get emojis.",
+    image: "/emoji.jpg",
+    demo: "https://www.emojis.com",
   },
   {
-    title: "Professional Portfolio",
+    title: "FeedbackHub",
     description:
-      " A professional portfolio website to Showing your work in a professional way to get more noticed.",
-    image: "/portfolio.png",
-    demo: "https://project3-demo.com",
+      "Build better products with real user feedback (not guesses🤨)",
+    image: "/feedbackhub.png",
+    demo: "https://feedbackhub.dev",
+  },
+  {
+    title: "Solution App",
+    description:
+      "A mobile app for students to find solutions to their problems.",
+    image: "/solutionapp.png",
+    demo: "https://play.google.com/store/apps/details?id=com.rootankit.biharboardsolutionclass10",
+  },
+  {
+    title: "Ghori Fashion Designer",
+    description:
+      "A mobile app provide complete Tutorials for learning Sewing from Basic to Advance",
+    image: "/ghorifashiondesigner.png",
+    demo: "https://play.google.com/store/apps/details?id=com.gfd.ghori_fashion",
+  },
+  {
+    title: "Bullseye App",
+    description:
+      "App is design to provide all information regarding stock market at one place.",
+    image: "/bullseyeapp.png",
+    demo: "https://play.google.com/store/apps/details?id=com.rajan.bullseye",
   },
 ];
 

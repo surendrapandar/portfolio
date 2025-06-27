@@ -11,11 +11,73 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Portfolio of Surendra Pandar - Software Developer",
-  description:
-    "This is the portfolio of Abu Said. I am a full stack developer and a self taught developer. I love to learn new things and I am always open to collaborating with others. I am a quick learner and I am always looking for new challenges.",
-};
+  title: "Surendra Pandar",
+  description: "Building the future with code.",
+  keywords: [
+    "Surendra Pandar",
+    "Surendra",
+    "Pandar",
+    "Surendra Pandar Portfolio",
+    "website development",
+    "web development",
+    "software development",
+    "app development",
+    "AI MVP development",
+    "AI development",
+    "AI",
+    "AI agent development",
+    "software agency",
+    "software agency in India",
+    "software agency in jaipur",
+    "software agency in rajasthan",
+    "software agency in jaipur rajasthan",
+    "E-commerce development",
+    "E-commerce",
+    "Food delivery app development",
+    "Food delivery app",
+    "Travel app development",
+    "CRM development",
+    "Course website development",
+  ],
+  openGraph: {
+    title: "Surendra Pandar",
+    description: "Building the future with code.",
+    url: "https://www.surendrapandar.dev",
+    siteName: "Surendra Pandar",
+    images: [
+      {
+        url: "https://i.ibb.co/XkYtcg6H/Mockup.png",
+        width: 1200,
+        height: 630,
+        alt: "Surendra Pandar OG Image",
+      },
+    ],
 
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Surendra Pandar",
+    description: "Building the future with code.",
+    creator: "@surendra_pandar", // Replace with your Twitter handle
+    images: ["https://i.ibb.co/XkYtcg6H/Mockup.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
+  alternates: {
+    canonical: "https://www.surendrapandar.dev",
+  },
+};
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -33,6 +95,12 @@ export default function RootLayout({ children }) {
         />
       </body>
       <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM} />
+      <Script
+        src="https://cloud.umami.is/script.js"
+        data-website-id="5f04c0d8-7f1d-4ac3-8251-37a6bdcbb787"
+        strategy="afterInteractive"
+        defer
+      />
     </html>
   );
 }
