@@ -6,19 +6,19 @@ export default function OurServices() {
       icon: Cloud,
       title: "SaaS Platforms",
       description:
-        "Build scalable, user-friendly SaaS solutions tailored to your business needs and drive sustainable growth.",
+        "We create powerful SaaS solution that grows with your company and helps you succeed in the long run.",
     },
     {
       icon: Smartphone,
       title: "Mobile & Web Apps",
       description:
-        "Create high-performance mobile and web apps designed for exceptional user engagement and success.",
+        "We build fast and smooth apps for phones and websites that your users will love to use every day.",
     },
     {
       icon: Brain,
       title: "AI-Powered Apps",
       description:
-        "Develop innovative AI applications to automate processes and drive intelligent business transformation.",
+        "We make smart apps using AI technology that handle boring tasks automatically and make your business smarter.",
     },
   ];
 

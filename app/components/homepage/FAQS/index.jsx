@@ -12,12 +12,12 @@ export default function FaqSection() {
     {
       question: "How long does it take to build an MVP?",
       answer:
-        "The timeline for building an MVP typically ranges from 2-4 months, depending on the complexity of your product and the features required. We work closely with you to define the core features and create a realistic timeline that balances speed to market with quality development.",
+        "The timeline for building an MVP typically ranges from 1-2 months, depending on the complexity of your product and the features required. We work closely with you to define the core features and create a realistic timeline that balances speed to market with quality development.",
     },
     {
       question: "What technologies do you use for development?",
       answer:
-        "We use modern, scalable technologies including React, Next.js, Node.js, Python, and cloud platforms like AWS and Vercel. Our tech stack is chosen based on your specific requirements, ensuring optimal performance, security, and future scalability of your product.",
+        "We use modern, scalable technologies including React, Next.js, Node.js, React native, Docker, MongoDB, Figma, Tailwind css, Prisma, Python, and cloud platforms like AWS and Vercel. Our tech stack is chosen based on your specific requirements, ensuring optimal performance, security, and future scalability of your product.",
     },
     {
       question: "Do you provide support after the MVP is launched?",
