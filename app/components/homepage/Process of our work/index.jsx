@@ -14,41 +14,37 @@ export default function ProcessSteps() {
   const steps = [
     {
       number: "01",
-      title: "Discovery Call",
+      title: "Discovery & Planning",
       description:
-        "We start with understanding your vision, requirements, and business goals. This initial consultation helps us map out the perfect strategy for your project.",
+        "Understanding your requirements and planning the app architecture",
       icon: Phone,
       delay: "0ms",
     },
     {
       number: "02",
-      title: "Design",
-      description:
-        "Our UI/UX experts create intuitive wireframes and high-fidelity prototypes that capture your brand essence while ensuring exceptional user experience.",
+      title: "UI/UX Design",
+      description: "Creating intuitive and engaging user interfaces",
       icon: Palette,
       delay: "100ms",
     },
     {
       number: "03",
       title: "Development",
-      description:
-        "Our skilled developers bring the designs to life using clean, scalable code. We follow industry best practices to ensure your application is robust and future-proof.",
+      description: "Building your app with modern mobile technologies",
       icon: Code,
       delay: "200ms",
     },
     {
       number: "04",
-      title: "Testing",
-      description:
-        "Rigorous quality assurance across multiple devices and platforms ensures your application is bug-free, responsive, and delivers a seamless experience.",
+      title: "Testing & QA",
+      description: "Rigorous testing across multiple devices and platforms",
       icon: TestTube,
       delay: "300ms",
     },
     {
       number: "05",
       title: "Deployment",
-      description:
-        "We handle the entire submission and release process to make your application available on app stores, followed by ongoing support and maintenance.",
+      description: "Launch your app on the App Store and Google Play",
       icon: Rocket,
       delay: "400ms",
     },
