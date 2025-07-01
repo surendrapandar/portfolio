@@ -163,7 +163,7 @@ function HeroSection() {
                 <Button className="bg-[#16f2b3] hover:bg-[#37e0b0] px-8 py-6 rounded-xl shadow-2xl transform transition-all hover:scale-105 hover:shadow-[#16f2b3]/25 group">
                   <CalendarRange className="text-gray-800 text-xl" />
                   <span className="text-gray-800 text-xl font-bold">
-                    Let's Talk & Build
+                    Let&apos;s Talk & Build
                   </span>
                   <ArrowRight className="text-gray-800 text-xl group-hover:translate-x-1 transition-transform" />
                 </Button>
