@@ -9,35 +9,62 @@ import {
   Award,
   Zap,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import StatCard from "./StatCard";
 import TrustCard from "./TrustCard";
 
 export default function AnalyticsSection() {
   const [isVisible, setIsVisible] = useState(false);
+  const [startCounting, setStartCounting] = useState(false);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     setIsVisible(true);
-  }, []);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting && !startCounting) {
+          setStartCounting(true);
+        }
+      },
+      {
+        threshold: 0.3, // Trigger when 30% of the section is visible
+        rootMargin: "-50px 0px -50px 0px",
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [startCounting]);
 
   const stats = [
     {
       icon: Award,
-      value: 11,
+      value: 15,
       label: "Projects Completed",
       description: "Successfully delivered",
       color: "from-blue-500 to-blue-600",
       bgColor: "bg-blue-500/10",
       borderColor: "border-blue-500/20",
+      suffix: "+",
     },
     {
       icon: Users,
-      value: 8,
+      value: 10,
       label: "Happy Clients",
       description: "Satisfied customers",
       color: "from-[#16f2b3] to-green-400",
       bgColor: "bg-[#16f2b3]/10",
       borderColor: "border-[#16f2b3]/20",
+      suffix: "+",
     },
     {
       icon: TrendingUp,
@@ -47,6 +74,7 @@ export default function AnalyticsSection() {
       color: "from-purple-500 to-purple-600",
       bgColor: "bg-purple-500/10",
       borderColor: "border-purple-500/20",
+      suffix: "K+",
     },
     {
       icon: Zap,
@@ -56,11 +84,15 @@ export default function AnalyticsSection() {
       color: "from-orange-500 to-yellow-500",
       bgColor: "bg-orange-500/10",
       borderColor: "border-orange-500/20",
+      suffix: "+",
     },
   ];
 
   return (
-    <section className="relative bg-gray-900 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="relative bg-gray-900 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
+    >
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900"></div>
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#16f2b3] rounded-full mix-blend-multiply filter blur-3xl opacity-5 animate-pulse"></div>
@@ -92,6 +124,7 @@ export default function AnalyticsSection() {
               stat={stat}
               isVisible={isVisible}
               index={index}
+              startCounting={startCounting}
             />
           ))}
         </div>

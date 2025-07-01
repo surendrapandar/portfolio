@@ -6,15 +6,15 @@ import { useInView } from "react-intersection-observer";
 
 function WhyMe() {
   const statsData = [
-    { value: 11, suffix: "+", label: "Projects Completed" },
-    { value: 8, suffix: "+", label: "Happy Clients" },
+    { value: 15, suffix: "+", label: "Projects Completed" },
+    { value: 10, suffix: "+", label: "Happy Clients" },
     { value: 20, suffix: "K+", label: "Following On Social Media" },
     { value: 3, suffix: "+", label: "Years of Experience" },
   ];
 
   const { ref, inView } = useInView({
     triggerOnce: true, // Animate only once
-    threshold: 0.3, // Trigger when 30% of the element is in view
+    threshold: 0.1, // Trigger when 10% of the element is in view
   });
 
   return (
@@ -41,6 +41,7 @@ function WhyMe() {
               <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2">
                 {inView ? (
                   <CountUp
+                    start={0}
                     end={stat.value}
                     duration={2.5}
                     suffix={stat.suffix}

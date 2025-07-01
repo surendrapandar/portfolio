@@ -22,39 +22,69 @@ const CountUpAnimation = ({ end, duration = 2000, isVisible }) => {
   return count.toLocaleString();
 };
 
-const StatCard = ({ stat, isVisible, index }) => {
+const StatCard = ({ stat, isVisible, index, startCounting }) => {
+  const [displayValue, setDisplayValue] = useState(0);
+
+  useEffect(() => {
+    if (!startCounting) return;
+
+    const duration = 2000; // 2 seconds
+    const steps = 60; // 60 steps for smooth animation
+    const increment = stat.value / steps;
+    const stepDuration = duration / steps;
+
+    let currentStep = 0;
+    const timer = setInterval(() => {
+      currentStep++;
+      const currentValue = Math.min(increment * currentStep, stat.value);
+      setDisplayValue(Math.round(currentValue));
+
+      if (currentStep >= steps) {
+        clearInterval(timer);
+        setDisplayValue(stat.value); // Ensure we end with exact value
+      }
+    }, stepDuration);
+
+    return () => clearInterval(timer);
+  }, [startCounting, stat.value]);
+
   const IconComponent = stat.icon;
 
   return (
     <div
-      className={`relative group transform transition-all duration-500 hover:scale-105 ${
-        isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+      className={`relative group transform transition-all duration-700 ease-out ${
+        isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
       }`}
       style={{ transitionDelay: `${index * 100}ms` }}
     >
       <div
-        className={`relative bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border ${stat.borderColor} hover:border-opacity-50 transition-all duration-300`}
+        className={`relative p-6 rounded-2xl ${stat.bgColor} border ${stat.borderColor} backdrop-blur-sm hover:scale-105 transition-transform duration-300`}
       >
+        {/* Icon */}
         <div
-          className={`w-16 h-16 rounded-xl ${stat.bgColor} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
+          className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${stat.color} mb-4`}
         >
-          <IconComponent className="w-8 h-8 text-white" />
+          <IconComponent className="w-6 h-6 text-white" />
         </div>
+
+        {/* Value */}
         <div className="mb-2">
-          <span className="text-5xl font-bold text-[#16f2b3]">
-            <CountUpAnimation end={stat.value} isVisible={isVisible} />
+          <span className="text-3xl font-bold text-white">
+            {displayValue}
+            {startCounting && displayValue > 0 ? stat.suffix : ""}
           </span>
-          {stat.label.includes("Following") && stat.value >= 10 && (
-            <span className="text-5xl text-[#16f2b3] ml-0">K</span>
-          )}
-          {(stat.value >= 3 || stat.label.includes("Following")) && (
-            <span className="text-5xl text-[#16f2b3]  ml-1">+</span>
-          )}
-        </div>{" "}
-        <h3 className="text-lg font-semibold text-gray-300 mb-1">
-          {stat.label}
-        </h3>
-        <p className="text-sm text-gray-500">{stat.description}</p>
+        </div>
+
+        {/* Label */}
+        <h3 className="text-lg font-semibold text-white mb-1">{stat.label}</h3>
+
+        {/* Description */}
+        <p className="text-sm text-gray-400">{stat.description}</p>
+
+        {/* Hover effect */}
+        <div
+          className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
+        ></div>
       </div>
     </div>
   );
