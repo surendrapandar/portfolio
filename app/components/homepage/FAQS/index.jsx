@@ -12,7 +12,7 @@ export default function FaqSection() {
     {
       question: "How long does it take to build an MVP?",
       answer:
-        "The timeline for building an MVP typically ranges from 1-2 months, depending on the complexity of your product and the features required. We work closely with you to define the core features and create a realistic timeline that balances speed to market with quality development.",
+        "The timeline for building an MVP typically ranges from 2-4 weeks, depending on the complexity of your product and the features required. We work closely with you to define the core features and create a realistic timeline that balances speed to market with quality development.",
     },
     {
       question: "What technologies do you use for development?",
@@ -46,15 +46,6 @@ export default function FaqSection() {
 
         <div className="bg-slate-800/50 rounded-2xl p-6 md:p-8 backdrop-blur-sm border border-slate-700">
           <CustomAccordion items={faqs} />
-        </div>
-
-        <div className="text-center mt-12">
-          <p className="text-slate-400 mb-6">
-            Still have questions? We're here to help.
-          </p>
-          <button className="bg-teal-500 hover:bg-teal-600 text-white px-8 py-3 rounded-[10px] font-medium transition-colors duration-200">
-            Contact Us
-          </button>
         </div>
       </div>
     </div>

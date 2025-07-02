@@ -1,7 +1,13 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { CalendarRange } from "lucide-react";
+import {
+  CalendarRange,
+  ArrowRight,
+  Zap,
+  Clock,
+  CheckCircle,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -10,21 +16,29 @@ import ScrollCards from "./scroll-cards";
 function HeroSection() {
   const [displayText, setDisplayText] = useState("AI MVP");
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  const services = ["AI MVP", "Product"];
+  const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
 
   useEffect(() => {
+    setIsVisible(true);
+
     const interval = setInterval(() => {
       setIsAnimating(true);
       setTimeout(() => {
-        setDisplayText((prev) => (prev === "AI MVP" ? "Product" : "AI MVP"));
+        setCurrentServiceIndex((prev) => (prev + 1) % services.length);
+        setDisplayText(services[(currentServiceIndex + 1) % services.length]);
         setIsAnimating(false);
-      }, 500); // Half the interval for the fade-out part
-    }, 3000); // Switch every 3 seconds
+      }, 500);
+    }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [currentServiceIndex, services]);
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-white -m-10 mt-10">
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-white -m-10 overflow-hidden">
+      {/* Background Elements */}
       <Image
         src="/hero.svg"
         alt="Hero"
@@ -33,81 +47,141 @@ function HeroSection() {
         className="absolute -top-[98px] -z-10"
       />
 
-      <div className="container mx-auto px-4  relative z-10 ">
-        <div className="max-w-5xl mx-auto space-y-12">
-          {/* Social proof section */}
-          <div className="text-center mt-2">
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-gray-800/50 rounded-full border border-gray-700">
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4, 5].map((i) => (
+      {/* Floating Elements */}
+      <div className="absolute inset-0 -z-5">
+        <div className="absolute top-20 left-20 w-20 h-20 bg-[#16f2b3]/20 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute top-40 right-32 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl animate-pulse delay-1000"></div>
+        <div className="absolute bottom-40 left-1/4 w-24 h-24 bg-purple-500/20 rounded-full blur-xl animate-pulse delay-2000"></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-6xl mx-auto space-y-12">
+          {/* Main Heading */}
+          <div
+            className={`transition-all duration-1000 delay-300 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
+            }`}
+          >
+            <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold text-center leading-tight">
+              Launch your{" "}
+              <span
+                className={`text-[#16f2b3] inline-block min-w-[350px] transition-all duration-500 ${
+                  isAnimating ? "opacity-0 scale-95" : "opacity-100 scale-100"
+                }`}
+              >
+                {displayText}
+              </span>
+              <div className="mb-2" />
+              in Just{" "}
+              <span className="relative inline-block">
+                <span className="relative z-10">30 Days</span>
+                <div className="absolute -inset-2 bg-gradient-to-r from-[#16f2b3]/20 to-blue-500/20 blur-lg rounded-lg"></div>
+                <svg
+                  className="absolute w-full -bottom-2 z-10"
+                  height="8"
+                  viewBox="0 0 100 8"
+                  preserveAspectRatio="none"
+                >
+                  <path
+                    d="M0,4 Q25,0 50,4 T100,4"
+                    fill="none"
+                    stroke="#16f2b3"
+                    strokeWidth="3"
+                    className="animate-pulse"
+                  />
+                </svg>
+              </span>
+            </h1>
+          </div>
+
+          {/* Value Proposition */}
+          <div
+            className={`transition-all duration-1000 delay-500 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
+            }`}
+          >
+            <div className="text-center space-y-6">
+              <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                From concept to launch in{" "}
+                <span className="text-[#16f2b3] font-semibold">30 days</span> or
+                less. Get a professional, scalable product that drives results.
+              </p>
+
+              <div className="flex flex-wrap justify-center gap-6 mt-8">
+                {[
+                  {
+                    icon: Zap,
+                    text: "Fast Delivery",
+                    desc: "30-day guarantee",
+                  },
+                  {
+                    icon: CheckCircle,
+                    text: "Quality Assured",
+                    desc: "100% satisfaction",
+                  },
+                  {
+                    icon: Clock,
+                    text: "Fully Secure",
+                    desc: "Security always in mind",
+                  },
+                ].map((benefit, index) => (
                   <div
-                    key={i}
-                    className="w-8 h-8 rounded-full bg-gradient-to-br from-[#16f2b3] to-blue-500 border-2 border-gray-800 flex items-center justify-center text-xs font-bold text-gray-900"
+                    key={index}
+                    className="flex items-center gap-3 bg-gray-800/30 backdrop-blur-sm px-4 py-3 rounded-lg border border-gray-700/50"
                   >
-                    {i}
+                    <benefit.icon className="w-5 h-5 text-[#16f2b3]" />
+                    <div className="text-left">
+                      <div className="text-white font-medium text-sm">
+                        {benefit.text}
+                      </div>
+                      <div className="text-gray-400 text-xs">
+                        {benefit.desc}
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>
-              <span className="text-gray-300 ml-2">
-                Join 20+ satisfied clients
-              </span>
             </div>
           </div>
-          {/* Main heading */}
-          <h1 className="text-5xl md:text-6xl lg:text-8xl font-semibold text-center leading-tight ">
-            Lanuch your{" "}
-            <span
-              className={`text-[#16f2b3] hover:text-[#37e0b0] inline-block w-[350px] transition-opacity duration-500 ${
-                isAnimating ? "opacity-0" : "opacity-100"
-              }`}
-            >
-              {displayText}
-            </span>
-            <div className="mb-2" />
-            in Just{" "}
-            <span className="relative inline-block">
-              1 Month
-              <svg
-                className="absolute w-full -bottom-2"
-                height="6"
-                viewBox="0 0 100 6"
-                preserveAspectRatio="none"
-              >
-                <path
-                  d="M0,2 L10,0 L20,4 L30,0 L40,4 L50,0 L60,4 L70,0 L80,4 L90,0 L100,4"
-                  fill="none"
-                  stroke="#16f2b3"
-                  strokeWidth="2"
-                />
-              </svg>
-            </span>
-          </h1>
 
-          <div className="flex flex-col items-center  space-y-4 text-lg md:text-xl text-gray-400">
-            <p className="text-center text-2xl max-w-lg mx-5">
-              Transform your vision into reality with affordable pricing - from
-              concept to launch in just 30 days.
-            </p>
-            {/* <div className="text-xl leading-relaxed justify-center text-center">
-              Let&apos;s connect and explore how we can work together.
-            </div> */}
+          {/* CTAs */}
+          <div
+            className={`transition-all duration-1000 delay-700 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
+            }`}
+          >
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link
+                className="flex items-center gap-3"
+                href="https://calendly.com/surendrapandar/30min"
+              >
+                <Button className="bg-[#16f2b3] hover:bg-[#37e0b0] px-8 py-6 rounded-xl shadow-2xl transform transition-all hover:scale-105 hover:shadow-[#16f2b3]/25 group">
+                  <CalendarRange className="text-gray-800 text-xl" />
+                  <span className="text-gray-800 text-xl font-bold">
+                    Let&apos;s Talk & Build
+                  </span>
+                  <ArrowRight className="text-gray-800 text-xl group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+
+              <Link href="#ourwork">
+                <Button
+                  variant="outline"
+                  className="border-gray-600 text-gray-300 hover:text-white hover:border-[#16f2b3] px-8 py-6 rounded-xl transition-all hover:scale-105"
+                >
+                  <span className="text-xl font-medium">View Past Work</span>
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
-      <Button className="bg-[#16f2b3] hover:bg-[#37e0b0]  px-10 py-6 rounded-[10px] mt-8 flex justify-center shadow-md transform transition-transform hover:scale-105">
-        <Link
-          className="flex items-center gap-3"
-          href="https://calendly.com/surendrapandar/30min"
-        >
-          <CalendarRange className="text-gray-700 text-2xl" />
-          <span className="text-gray-700 text-2xl font-semibold">
-            Let&apos;s Talk
-          </span>
-        </Link>
-      </Button>
-
-      {/* Scroll Cards Section */}
-      <ScrollCards />
     </section>
   );
 }
