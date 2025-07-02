@@ -5,6 +5,7 @@ import { CalendarRange } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import ScrollCards from "./scroll-cards";
 
 function HeroSection() {
   const [displayText, setDisplayText] = useState("AI MVP");
@@ -23,7 +24,7 @@ function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-white -m-10 ">
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-white -m-10 mt-10">
       <Image
         src="/hero.svg"
         alt="Hero"
@@ -104,6 +105,9 @@ function HeroSection() {
           </span>
         </Link>
       </Button>
+
+      {/* Scroll Cards Section */}
+      <ScrollCards />
     </section>
   );
 }
