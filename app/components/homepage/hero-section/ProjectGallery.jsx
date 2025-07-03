@@ -9,26 +9,25 @@ const images = [
   },
 
   {
-    src: "/image/laptop (1).png",
+    src: "/image/emojis.gif",
+    alt: "Emoji Reactions",
     alt: "Dashboard Interface",
   },
-  {
-    src: "/image/feedback.png",
-    alt: "Analytics Dashboard",
-  },
+
   {
     src: "/image/Frame.png",
     alt: "Dashboard Design",
   },
 
   {
-    src: "/image/Recording 2025-07-02 at 17.43.31.gif",
-    alt: "Project Demo Recording",
-    isGif: true,
-  },
-  {
-    src: "/image/mobile-black.png",
+    src: "/image/kashii.gif",
+    alt: "Portfolio Showcase",
     alt: "Dashboard Design",
+  },
+
+  {
+    src: "/image/feedback.png",
+    alt: "Analytics Dashboard",
   },
 ];
 
@@ -43,8 +42,8 @@ export default function ProjectGallery() {
     if (!scrollContainer) return;
 
     let scrollAmount = 0;
-    const scrollStep = 1.5; // pixels per step
-    const scrollDelay = 20; // milliseconds between steps
+    const scrollStep = 5;
+    const scrollDelay = 20; // milliseconds between steps (increased for slower scroll)
     let intervalId;
 
     const autoScroll = () => {
@@ -142,54 +141,101 @@ export default function ProjectGallery() {
                     : "p-4 w-full h-full"
                 }
               >
-                {img.isGif ? (
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    className={
-                      img.src === "/image/mobile-black.png" ||
-                      img.src === "/image/Frame.png"
-                        ? "object-contain w-full h-full max-h-[500px]"
-                        : "object-cover w-full h-full rounded-2xl"
-                    }
+                {img.src === "/image/kashish.gif" ? (
+                  <div
                     style={{
-                      objectFit:
-                        img.src === "/image/mobile-black.png" ||
-                        img.src === "/image/Frame.png"
-                          ? "contain"
-                          : "cover",
-                      height:
-                        img.src === "/image/mobile-black.png" ||
-                        img.src === "/image/Frame.png"
-                          ? "500px"
-                          : "100%",
+                      width: "100%",
+                      height: "100%",
+                      display: "flex",
+                      alignItems: "stretch",
+                      justifyContent: "center",
+                      overflow: "hidden",
+                      background: "#18181b",
+                      padding: 0,
                     }}
-                  />
+                  >
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        maxWidth: "100%",
+                        maxHeight: "100%",
+                        objectFit: "cover",
+                        display: "block",
+                        margin: 0,
+                        borderRadius: "1rem",
+                        boxShadow: "0 0 0 0 transparent",
+                      }}
+                    />
+                  </div>
+                ) : img.isGif ? (
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      overflow: "hidden",
+                      background: "#18181b",
+                      padding: 0,
+                    }}
+                  >
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      style={{
+                        width: "auto",
+                        height: "90%",
+                        maxWidth: "100%",
+                        maxHeight: "100%",
+                        objectFit: "contain",
+                        display: "block",
+                        margin: 0,
+                        borderRadius: "1rem",
+                      }}
+                    />
+                  </div>
                 ) : (
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    width={700}
-                    height={400}
-                    className={
-                      img.src === "/image/mobile-black.png" ||
-                      img.src === "/image/Frame.png"
-                        ? "object-contain w-full h-full max-h-[500px]"
-                        : "object-cover w-full h-full rounded-2xl"
-                    }
+                  <div
                     style={{
-                      objectFit:
-                        img.src === "/image/mobile-black.png" ||
-                        img.src === "/image/Frame.png"
-                          ? "contain"
-                          : "cover",
-                      height:
-                        img.src === "/image/mobile-black.png" ||
-                        img.src === "/image/Frame.png"
-                          ? "500px"
-                          : "100%",
+                      width: "100%",
+                      height: "100%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      overflow: "hidden",
+                      background: "#18181b",
+                      padding: 0,
                     }}
-                  />
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      width={700}
+                      height={400}
+                      className={
+                        img.src === "/image/mobile-black.png" ||
+                        img.src === "/image/Frame.png"
+                          ? "object-contain w-full h-full max-h-[500px]"
+                          : "object-cover w-full h-full rounded-2xl"
+                      }
+                      style={{
+                        objectFit:
+                          img.src === "/image/mobile-black.png" ||
+                          img.src === "/image/Frame.png"
+                            ? "contain"
+                            : "cover",
+                        width: "100%",
+                        height: "100%",
+                        display: "block",
+                        margin: 0,
+                        borderRadius: "1rem",
+                      }}
+                    />
+                  </div>
                 )}
               </div>
             </div>
