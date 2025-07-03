@@ -11,7 +11,8 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import ScrollCards from "./scroll-cards";
+
+import ProjectGallery from "./ProjectGallery";
 
 function HeroSection() {
   const [displayText, setDisplayText] = useState("AI MVP");
@@ -37,7 +38,7 @@ function HeroSection() {
   }, [currentServiceIndex, services]);
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-white -m-10 overflow-hidden">
+    <div className="mt-10">
       {/* Background Elements */}
       <Image
         src="/hero.svg"
@@ -182,7 +183,10 @@ function HeroSection() {
           </div>
         </div>
       </div>
-    </section>
+      <div className="mt-40">
+        <ProjectGallery />
+      </div>
+    </div>
   );
 }
 
