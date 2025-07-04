@@ -39,7 +39,7 @@ function HeroSection() {
   }, [currentServiceIndex, services]);
 
   return (
-    <div className="mt-10">
+    <div className="mt-5">
       {/* Background Elements */}
       <Image
         src="/hero.svg"
