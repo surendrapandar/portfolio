@@ -13,6 +13,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 
 import ProjectGallery from "./ProjectGallery";
+import SlotAvailability from "./slot";
 
 function HeroSection() {
   const [displayText, setDisplayText] = useState("AI MVP");
@@ -56,6 +57,9 @@ function HeroSection() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
+        {/* Slot Availability at the top */}
+        <SlotAvailability />
+
         <div className="max-w-6xl mx-auto space-y-12">
           {/* Main Heading */}
           <div
