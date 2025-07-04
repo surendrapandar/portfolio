@@ -46,7 +46,7 @@ export const metadata = {
     siteName: "Surendra Pandar",
     images: [
       {
-        url: "https://i.ibb.co/XkYtcg6H/Mockup.png",
+        url: "https://i.ibb.co/hF6GBWVF/final-sku-mokup.png",
         width: 1200,
         height: 630,
         alt: "Surendra Pandar OG Image",
