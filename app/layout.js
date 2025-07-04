@@ -60,7 +60,7 @@ export const metadata = {
     title: "Surendra Pandar",
     description: "Building the future with code.",
     creator: "@surendra_pandar", // Replace with your Twitter handle
-    images: ["https://i.ibb.co/XkYtcg6H/Mockup.png"],
+    images: ["https://i.ibb.co/hF6GBWVF/final-sku-mokup.png"],
   },
   robots: {
     index: true,
