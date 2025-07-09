@@ -75,7 +75,7 @@ const SlotAvailability = () => {
     <div className="w-full flex justify-center mb-8">
       <div className="bg-gray-900/90 backdrop-blur-sm border border-gray-700/50 rounded-full px-6 py-3 shadow-lg">
         <span className="text-white text-sm font-medium">
-          Next availability: {nextDate} – {availableSlots} spot
+          🚀 Next availability: {nextDate} – {availableSlots} spot
           {availableSlots !== 1 ? "s" : ""} left
         </span>
       </div>
