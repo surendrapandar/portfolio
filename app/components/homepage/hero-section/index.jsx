@@ -180,7 +180,7 @@ function HeroSection() {
           </div>
         </div>
       </div>
-      <div className="mt-40">
+      <div className="mt-10">
         <ProjectGallery />
       </div>
     </div>
