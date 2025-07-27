@@ -31,6 +31,34 @@ const projects = [
 
     tags: ["Feedback", "Analytics", "SaaS"],
   },
+
+  {
+    title: "Bullseye App",
+    description:
+      "App is design to provide all information regarding stock market at one place.",
+    image: "/bullseyeapp.png",
+    demo: "https://play.google.com/store/apps/details?id=com.rajan.bullseye",
+
+    tags: ["React Native", "Finance", "Trading"],
+  },
+  {
+    title: "Fortiche",
+    description:
+      "App is design to provide all information regarding stock market at one place.",
+    image: "/image/fortiche.png",
+    demo: "https://www.fortiche.com/",
+
+    tags: ["React Native", "Finance", "Trading"],
+  },
+  {
+    title: "Inventory",
+    description:
+      "App is design to provide all information regarding stock market at one place.",
+    image: "/image/inventory.png",
+    demo: "https://www.inventoryreorder.com/",
+
+    tags: ["React Native", "Finance", "Trading"],
+  },
   {
     title: "Solution App",
     description:
@@ -48,15 +76,6 @@ const projects = [
     demo: "https://play.google.com/store/apps/details?id=com.gfd.ghori_fashion",
 
     tags: ["Flutter", "Education", "Tutorial"],
-  },
-  {
-    title: "Bullseye App",
-    description:
-      "App is design to provide all information regarding stock market at one place.",
-    image: "/bullseyeapp.png",
-    demo: "https://play.google.com/store/apps/details?id=com.rajan.bullseye",
-
-    tags: ["React Native", "Finance", "Trading"],
   },
 ];
 

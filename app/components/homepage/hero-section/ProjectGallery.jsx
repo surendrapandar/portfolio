@@ -24,20 +24,12 @@ const images = [
     alt: "Analytics Dashboard",
   },
   {
-    src: "/image/screenshot1.png",
+    src: "/image/fortiche.png",
     alt: "Screenshot 1",
   },
   {
-    src: "/image/screenshot2.png",
+    src: "/image/inventory.png",
     alt: "Screenshot 2",
-  },
-  {
-    src: "/image/fortiche.png",
-    alt: "Fortiche Screenshot",
-  },
-  {
-    src: "/image/inventory-reorder.png",
-    alt: "Inventory Reorder Screenshot",
   },
 ];
 
