@@ -39,15 +39,8 @@ function HeroSection() {
   }, [currentServiceIndex, services]);
 
   return (
-    <div className="mt-5">
+    <div className="mt-5 ">
       {/* Background Elements */}
-      <Image
-        src="/hero.svg"
-        alt="Hero"
-        width={1572}
-        height={795}
-        className="absolute -top-[98px] -z-10"
-      />
 
       {/* Floating Elements */}
       <div className="absolute inset-0 -z-5">
@@ -56,7 +49,7 @@ function HeroSection() {
         <div className="absolute bottom-40 left-1/4 w-24 h-24 bg-purple-500/20 rounded-full blur-xl animate-pulse delay-2000"></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 ">
         {/* Slot Availability at the top */}
         <SlotAvailability />
 
