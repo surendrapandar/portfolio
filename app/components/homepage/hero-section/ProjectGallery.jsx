@@ -8,7 +8,7 @@ const images = [
     alt: "Dashboard Analytics View",
   },
   {
-    src: "/image/emojis.gif",
+    src: "/image/emoji.png",
     alt: "Emoji Reactions",
   },
   {
@@ -16,7 +16,7 @@ const images = [
     alt: "Dashboard Design",
   },
   {
-    src: "/image/kashii.gif",
+    src: "/image/kashish.png",
     alt: "Portfolio Showcase",
   },
   {
