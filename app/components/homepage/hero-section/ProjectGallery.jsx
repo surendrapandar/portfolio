@@ -7,27 +7,37 @@ const images = [
     src: "/image/laptop.png",
     alt: "Dashboard Analytics View",
   },
-
   {
     src: "/image/emojis.gif",
     alt: "Emoji Reactions",
-    alt: "Dashboard Interface",
   },
-
   {
     src: "/image/Frame.png",
     alt: "Dashboard Design",
   },
-
   {
     src: "/image/kashii.gif",
     alt: "Portfolio Showcase",
-    alt: "Dashboard Design",
   },
-
   {
     src: "/image/feedback.png",
     alt: "Analytics Dashboard",
+  },
+  {
+    src: "/image/screenshot1.png",
+    alt: "Screenshot 1",
+  },
+  {
+    src: "/image/screenshot2.png",
+    alt: "Screenshot 2",
+  },
+  {
+    src: "/image/fortiche.png",
+    alt: "Fortiche Screenshot",
+  },
+  {
+    src: "/image/inventory-reorder.png",
+    alt: "Inventory Reorder Screenshot",
   },
 ];
 
