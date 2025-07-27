@@ -12,6 +12,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
+import ProjectGallery from "./ProjectGallery";
+import SlotAvailability from "./slot";
+
 function HeroSection() {
   const [displayText, setDisplayText] = useState("AI MVP");
   const [isAnimating, setIsAnimating] = useState(false);
@@ -36,7 +39,7 @@ function HeroSection() {
   }, [currentServiceIndex, services]);
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-white -m-10 overflow-hidden">
+    <div className="mt-5">
       {/* Background Elements */}
       <Image
         src="/hero.svg"
@@ -54,6 +57,9 @@ function HeroSection() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
+        {/* Slot Availability at the top */}
+        <SlotAvailability />
+
         <div className="max-w-6xl mx-auto space-y-12">
           {/* Main Heading */}
           <div
@@ -181,7 +187,10 @@ function HeroSection() {
           </div>
         </div>
       </div>
-    </section>
+      <div className="mt-40">
+        <ProjectGallery />
+      </div>
+    </div>
   );
 }
 
