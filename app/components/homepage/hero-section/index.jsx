@@ -60,7 +60,7 @@ function HeroSection() {
         {/* Slot Availability at the top */}
         <SlotAvailability />
 
-        <div className="max-w-6xl mx-auto space-y-12">
+        <div className="max-w-6xl mx-auto space-y-12 mt-12">
           {/* Main Heading */}
           <div
             className={`transition-all duration-1000 delay-300 ${
@@ -116,7 +116,7 @@ function HeroSection() {
                 less. Get a professional, scalable product that drives results.
               </p>
 
-              <div className="flex flex-wrap justify-center gap-6 mt-8">
+              {/* <div className="flex flex-wrap justify-center gap-6 mt-8">
                 {[
                   {
                     icon: Zap,
@@ -149,7 +149,7 @@ function HeroSection() {
                     </div>
                   </div>
                 ))}
-              </div>
+              </div> */}
             </div>
           </div>
 
