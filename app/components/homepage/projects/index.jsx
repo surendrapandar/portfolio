@@ -44,7 +44,7 @@ const projects = [
   {
     title: "Fortiche",
     description:
-      "App is design to provide all information regarding stock market at one place.",
+      "A Social Ecommerce marketplace platform that connects buyers and sellers.",
     image: "/image/fortiche.png",
     demo: "https://www.fortiche.com/",
 
@@ -53,7 +53,7 @@ const projects = [
   {
     title: "Inventory",
     description:
-      "App is design to provide all information regarding stock market at one place.",
+      "Never Run Out of Stock Again. From Spreadsheets to Smart Inventory.",
     image: "/image/inventory.png",
     demo: "https://www.inventoryreorder.com/",
 

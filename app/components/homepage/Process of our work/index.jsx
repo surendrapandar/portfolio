@@ -69,7 +69,7 @@ export default function ProcessSteps() {
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
             How It <span style={{ color: "#16f2b3" }}>Works</span>
           </h2>
-          <p className="text-[12px] sm:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[16px] sm:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
             Our proven 5-step process ensures your project is delivered on time,
             within budget, and exceeds expectations
           </p>

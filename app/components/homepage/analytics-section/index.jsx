@@ -34,13 +34,14 @@ export default function AnalyticsSection() {
       }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const refNode = sectionRef.current;
+    if (refNode) {
+      observer.observe(refNode);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (refNode) {
+        observer.unobserve(refNode);
       }
     };
   }, [startCounting]);
@@ -110,7 +111,7 @@ export default function AnalyticsSection() {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             WHY <span style={{ color: "#16f2b3" }}>US</span>{" "}
           </h2>
-          <p className="text-[12px] sm:text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-[16px] sm:text-xl text-gray-400 max-w-2xl mx-auto">
             Because we are not just developers, we are your partners in success.
             we have a proven track record of delivering exceptional results for
             our clients.

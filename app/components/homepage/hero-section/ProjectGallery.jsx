@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
@@ -39,8 +40,17 @@ const duplicatedImages = [...images, ...images, ...images];
 
 export default function ProjectGallery() {
   const scrollRef = useRef(null);
+  // Set default window width for SSR and first render to avoid image size jump
+  const [windowWidth, setWindowWidth] = React.useState(
+    typeof window !== "undefined" ? window.innerWidth : 1024
+  );
 
   useEffect(() => {
+    // Only run on client
+    setWindowWidth(window.innerWidth);
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
 
@@ -54,7 +64,7 @@ export default function ProjectGallery() {
         scrollAmount += scrollStep;
         // Get one set width (original images length * (card width + gap))
         const oneSetWidth =
-          images.length * (window.innerWidth < 768 ? 280 + 8 : 700 + 12);
+          images.length * (windowWidth < 768 ? 280 + 8 : 700 + 12);
 
         if (scrollAmount >= oneSetWidth) {
           scrollAmount = 0;
@@ -93,8 +103,9 @@ export default function ProjectGallery() {
         scrollContainer.removeEventListener("mouseenter", handleMouseEnter);
         scrollContainer.removeEventListener("mouseleave", handleMouseLeave);
       }
+      window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [windowWidth]);
 
   return (
     <section className="w-full pt-10 pb-16 ">
@@ -114,6 +125,17 @@ export default function ProjectGallery() {
               img.src === "/image/mobile-black.png" ||
               img.src === "/image/Frame.png";
 
+            // Use windowWidth for sizing, fallback to default for SSR
+            const minWidth = isMobileImage
+              ? windowWidth < 768
+                ? 200
+                : 400
+              : windowWidth < 768
+              ? 280
+              : 700;
+            const maxWidth = minWidth;
+            const height = windowWidth < 768 ? 200 : 500;
+
             return (
               <div
                 key={idx}
@@ -123,22 +145,9 @@ export default function ProjectGallery() {
                     : "flex-shrink-0 rounded-3xl overflow-hidden relative group hover:scale-105 transition-all duration-300 shadow-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-[#16f2b3]/20 backdrop-blur-sm"
                 }
                 style={{
-                  minWidth: isMobileImage
-                    ? window.innerWidth < 768
-                      ? 200
-                      : 400
-                    : window.innerWidth < 768
-                    ? 280
-                    : 700,
-                  maxWidth: isMobileImage
-                    ? window.innerWidth < 768
-                      ? 200
-                      : 400
-                    : window.innerWidth < 768
-                    ? 280
-                    : 700,
-                  height:
-                    window.innerWidth < 768 ? 200 : isMobileImage ? 500 : 500,
+                  minWidth,
+                  maxWidth,
+                  height,
                   background: isMobileImage ? "transparent" : undefined,
                 }}
               >
@@ -162,20 +171,23 @@ export default function ProjectGallery() {
                         padding: 0,
                       }}
                     >
-                      <img
+                      <Image
                         src={img.src || "/placeholder.svg"}
                         alt={img.alt}
+                        width={800}
+                        height={600}
                         style={{
                           width: "100%",
                           height: "100%",
                           maxWidth: "100%",
                           maxHeight: "100%",
-                          objectFit: "cover",
                           display: "block",
                           margin: 0,
                           borderRadius: isMobileImage ? "0" : "1rem",
                           boxShadow: "0 0 0 0 transparent",
+                          objectFit: "cover",
                         }}
+                        priority={true}
                       />
                     </div>
                   ) : (
@@ -202,12 +214,12 @@ export default function ProjectGallery() {
                             : "object-cover w-full h-full rounded-2xl"
                         }
                         style={{
-                          objectFit: isMobileImage ? "contain" : "cover",
                           width: "100%",
                           height: "100%",
                           display: "block",
                           margin: 0,
                           borderRadius: isMobileImage ? "0" : "1rem",
+                          objectFit: isMobileImage ? "contain" : "cover",
                         }}
                       />
                     </div>

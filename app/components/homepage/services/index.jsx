@@ -54,7 +54,7 @@ export default function OurServices() {
           <h2 className="text-4xl sm:text-6xl font-bold text-white mb-6">
             What We <span style={{ color: "#16f2b3" }}>Offer</span>
           </h2>
-          <p className="sm:text-xl text-[12px] text-gray-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="sm:text-xl text-[16px] text-gray-400 max-w-2xl mx-auto leading-relaxed">
             We deliver cutting-edge solutions that transform your business ideas
             into powerful digital experiences.
           </p>

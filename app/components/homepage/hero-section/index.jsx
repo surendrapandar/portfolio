@@ -20,10 +20,9 @@ function HeroSection() {
   const [isAnimating, setIsAnimating] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
-  const services = ["AI MVP", "Product"];
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
-
   useEffect(() => {
+    const services = ["AI MVP", "Product"];
     setIsVisible(true);
 
     const interval = setInterval(() => {
@@ -32,11 +31,11 @@ function HeroSection() {
         setCurrentServiceIndex((prev) => (prev + 1) % services.length);
         setDisplayText(services[(currentServiceIndex + 1) % services.length]);
         setIsAnimating(false);
-      }, 500);
-    }, 3000);
+      }, 100); // Even faster animation
+    }, 800); // Even faster switch
 
     return () => clearInterval(interval);
-  }, [currentServiceIndex, services]);
+  }, [currentServiceIndex]);
 
   return (
     <div className="mt-5 px-2 sm:px-4 ">
@@ -56,13 +55,13 @@ function HeroSection() {
         <div className="max-w-6xl mx-auto space-y-8 sm:space-y-12 mt-8 sm:mt-12">
           {/* Main Heading */}
           <div
-            className={`transition-all duration-1000 delay-300 ${
+            className={`transition-all duration-300 delay-50 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-8"
             }`}
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-center leading-tight">
+            <h1 className="text-5xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-center leading-tight">
               Launch your{" "}
               <span
                 className={`text-[#16f2b3] inline-block min-w-[180px] sm:min-w-[350px] transition-all duration-500 ${
@@ -71,39 +70,45 @@ function HeroSection() {
               >
                 {displayText}
               </span>
-              <div className="mb-2" />
-              in Just{" "}
-              <span className="relative inline-block">
-                <span className="relative z-10">30 Days</span>
-                <div className="absolute -inset-1 sm:-inset-2 bg-gradient-to-r from-[#16f2b3]/20 to-blue-500/20 blur-lg rounded-lg"></div>
-                <svg
-                  className="absolute w-full -bottom-1 sm:-bottom-2 z-10"
-                  height="8"
-                  viewBox="0 0 100 8"
-                  preserveAspectRatio="none"
-                >
-                  <path
-                    d="M0,4 Q25,0 50,4 T100,4"
-                    fill="none"
-                    stroke="#16f2b3"
-                    strokeWidth="3"
-                    className="animate-pulse"
-                  />
-                </svg>
+              {/* Mobile: single row, Desktop: original design */}
+              <span className="block sm:hidden text-md mt-2">
+                in just 30 days
+              </span>
+              <span className="hidden sm:inline">
+                <div className="mb-2" />
+                in Just{" "}
+                <span className="relative inline-block">
+                  <span className="relative z-10">30 Days</span>
+                  <div className="absolute -inset-1 sm:-inset-2 bg-gradient-to-r from-[#16f2b3]/20 to-blue-500/20 blur-lg rounded-lg"></div>
+                  <svg
+                    className="absolute w-full -bottom-1 sm:-bottom-2 z-10"
+                    height="8"
+                    viewBox="0 0 100 8"
+                    preserveAspectRatio="none"
+                  >
+                    <path
+                      d="M0,4 Q25,0 50,4 T100,4"
+                      fill="none"
+                      stroke="#16f2b3"
+                      strokeWidth="3"
+                      className="animate-pulse"
+                    />
+                  </svg>
+                </span>
               </span>
             </h1>
           </div>
 
           {/* Value Proposition */}
           <div
-            className={`transition-all duration-1000 delay-500 ${
+            className={`transition-all duration-300 delay-80 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-8"
             }`}
           >
             <div className="text-center space-y-4 sm:space-y-6">
-              <p className="text-[12px] sm:text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed px-2">
+              <p className=" text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed px-2">
                 From concept to launch in{" "}
                 <span className="text-[#16f2b3] font-semibold">30 days</span> or
                 less. Get a professional, scalable product that drives results.
@@ -148,7 +153,7 @@ function HeroSection() {
 
           {/* CTAs */}
           <div
-            className={`transition-all duration-1000 delay-700 ${
+            className={`transition-all duration-300 delay-120 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-8"
@@ -159,12 +164,12 @@ function HeroSection() {
                 className="flex items-center gap-3"
                 href="https://calendly.com/surendrapandar/30min"
               >
-                <Button className="bg-[#16f2b3] hover:bg-[#37e0b0] px-4 py-3 sm:px-8 sm:py-6 rounded-xl shadow-2xl transform transition-all hover:scale-105 hover:shadow-[#16f2b3]/25 group min-w-[100px] sm:min-w-[180px]">
+                <Button className="bg-[#16f2b3] hover:bg-[#37e0b0] px-6 py-4 sm:px-8 sm:py-6 rounded-xl shadow-2xl transform transition-all hover:scale-105 hover:shadow-[#16f2b3]/25 group min-w-[100px] sm:min-w-[180px]">
                   <CalendarRange className="text-gray-800 text-base sm:text-xl" />
                   <span className="text-gray-800 text-xs font-bold sm:text-xl">
-                    <span className="block sm:hidden">Let's Talk</span>
+                    <span className="block sm:hidden">Let&apos;s Talk</span>
                     <span className="hidden sm:block">
-                      Let&apos;s Talk & Build
+                      Let&apos;s Talk &amp; Build
                     </span>
                   </span>
                   <ArrowRight className="text-gray-800 text-base sm:text-xl group-hover:translate-x-1 transition-transform" />

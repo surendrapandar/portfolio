@@ -7,58 +7,63 @@ const SlotAvailability = () => {
   const [nextDate, setNextDate] = useState("");
 
   // Sample target dates with initial slots
-  const slotDates = [
-    { date: "2025-07-23", initialSlots: 3, displayDate: "July 23" },
-    { date: "2025-08-01", initialSlots: 8, displayDate: "August 1" },
-    { date: "2025-08-15", initialSlots: 5, displayDate: "August 15" },
-    { date: "2025-09-01", initialSlots: 7, displayDate: "September 1" },
-  ];
-
-  const calculateAvailableSlots = () => {
-    const today = new Date();
-    // Find the first slot whose date is after today
-    const nextAvailableSlot = slotDates.find(
-      (slot) => new Date(slot.date) > today
-    );
-
-    if (!nextAvailableSlot) {
-      return { slots: 0, displayDate: "No slots available" };
-    }
-
-    const slotDate = new Date(nextAvailableSlot.date);
-    const daysUntilSlot = Math.ceil((slotDate - today) / (1000 * 60 * 60 * 24));
-
-    let remainingSlots = 1;
-
-    const monthYear = slotDate.toLocaleString("default", {
-      month: "long",
-      year: "numeric",
-    });
-    let displayDate = monthYear;
-
-    if (daysUntilSlot <= 0) {
-      // Try to find the next slot after this one
-      const nextSlot = slotDates.find((slot) => new Date(slot.date) > slotDate);
-      if (nextSlot) {
-        remainingSlots = 1;
-        const nextSlotDate = new Date(nextSlot.date);
-        displayDate = nextSlotDate.toLocaleString("default", {
-          month: "long",
-          year: "numeric",
-        });
-      } else {
-        remainingSlots = 0;
-        displayDate = "No slots available";
-      }
-    }
-
-    return {
-      slots: remainingSlots,
-      displayDate: displayDate,
-    };
-  };
 
   useEffect(() => {
+    const slotDates = [
+      { date: "2025-07-23", initialSlots: 3, displayDate: "July 23" },
+      { date: "2025-08-01", initialSlots: 8, displayDate: "August 1" },
+      { date: "2025-08-15", initialSlots: 5, displayDate: "August 15" },
+      { date: "2025-09-01", initialSlots: 7, displayDate: "September 1" },
+    ];
+
+    const calculateAvailableSlots = () => {
+      const today = new Date();
+      // Find the first slot whose date is after today
+      const nextAvailableSlot = slotDates.find(
+        (slot) => new Date(slot.date) > today
+      );
+
+      if (!nextAvailableSlot) {
+        return { slots: 0, displayDate: "No slots available" };
+      }
+
+      const slotDate = new Date(nextAvailableSlot.date);
+      const daysUntilSlot = Math.ceil(
+        (slotDate - today) / (1000 * 60 * 60 * 24)
+      );
+
+      let remainingSlots = 1;
+
+      const monthYear = slotDate.toLocaleString("default", {
+        month: "long",
+        year: "numeric",
+      });
+      let displayDate = monthYear;
+
+      if (daysUntilSlot <= 0) {
+        // Try to find the next slot after this one
+        const nextSlot = slotDates.find(
+          (slot) => new Date(slot.date) > slotDate
+        );
+        if (nextSlot) {
+          remainingSlots = 1;
+          const nextSlotDate = new Date(nextSlot.date);
+          displayDate = nextSlotDate.toLocaleString("default", {
+            month: "long",
+            year: "numeric",
+          });
+        } else {
+          remainingSlots = 0;
+          displayDate = "No slots available";
+        }
+      }
+
+      return {
+        slots: remainingSlots,
+        displayDate: displayDate,
+      };
+    };
+
     const updateSlots = () => {
       const slotInfo = calculateAvailableSlots();
       setAvailableSlots(slotInfo.slots);
