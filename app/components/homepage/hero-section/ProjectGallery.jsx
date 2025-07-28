@@ -54,7 +54,7 @@ export default function ProjectGallery() {
         scrollAmount += scrollStep;
         // Get one set width (original images length * (card width + gap))
         const oneSetWidth =
-          images.length * (window.innerWidth < 768 ? 280 + 16 : 700 + 16);
+          images.length * (window.innerWidth < 768 ? 280 + 8 : 700 + 12);
 
         if (scrollAmount >= oneSetWidth) {
           scrollAmount = 0;
@@ -97,13 +97,17 @@ export default function ProjectGallery() {
   }, []);
 
   return (
-    <section className="w-full pt-10 pb-16">
+    <section className="w-full pt-10 pb-16 ">
       <div
         ref={scrollRef}
-        className="overflow-x-auto scrollbar-hide w-full"
-        style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
+        className="scrollbar-hide w-full"
+        style={{
+          width: "100vw",
+          marginLeft: "calc(-50vw + 50%)",
+          overflow: "hidden",
+        }}
       >
-        <div className="flex gap-4 md:gap-4 pb-2 pl-4 md:pl-8">
+        <div className="flex gap-2 md:gap-3 pb-2 pl-4 md:pl-8">
           {duplicatedImages.map((img, idx) => {
             const isMobileImage =
               img.isMobile ||
@@ -215,12 +219,27 @@ export default function ProjectGallery() {
         </div>
       </div>
       <style jsx global>{`
+        .scrollbar-hide {
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
+          width: 0;
+          height: 0;
         }
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
+
+        /* Prevent horizontal scroll on body */
+        body {
+          overflow-x: hidden;
+        }
+
+        /* Ensure no horizontal scroll on any parent containers */
+        html,
+        body {
+          max-width: 100vw;
+          overflow-x: hidden;
         }
       `}</style>
     </section>
