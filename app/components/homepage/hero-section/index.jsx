@@ -39,7 +39,7 @@ function HeroSection() {
   }, [currentServiceIndex, services]);
 
   return (
-    <div className="mt-5 ">
+    <div className="mt-5 px-2 sm:px-4 ">
       {/* Background Elements */}
 
       {/* Floating Elements */}
@@ -49,11 +49,11 @@ function HeroSection() {
         <div className="absolute bottom-40 left-1/4 w-24 h-24 bg-purple-500/20 rounded-full blur-xl animate-pulse delay-2000"></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10 ">
+      <div className="container mx-auto px-2 sm:px-4 relative z-10 ">
         {/* Slot Availability at the top */}
         <SlotAvailability />
 
-        <div className="max-w-6xl mx-auto space-y-12 mt-12">
+        <div className="max-w-6xl mx-auto space-y-8 sm:space-y-12 mt-8 sm:mt-12">
           {/* Main Heading */}
           <div
             className={`transition-all duration-1000 delay-300 ${
@@ -62,10 +62,10 @@ function HeroSection() {
                 : "opacity-0 translate-y-8"
             }`}
           >
-            <h1 className="text-5xl md:text-6xl lg:text-8xl font-bold text-center leading-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-center leading-tight">
               Launch your{" "}
               <span
-                className={`text-[#16f2b3] inline-block min-w-[350px] transition-all duration-500 ${
+                className={`text-[#16f2b3] inline-block min-w-[180px] sm:min-w-[350px] transition-all duration-500 ${
                   isAnimating ? "opacity-0 scale-95" : "opacity-100 scale-100"
                 }`}
               >
@@ -75,9 +75,9 @@ function HeroSection() {
               in Just{" "}
               <span className="relative inline-block">
                 <span className="relative z-10">30 Days</span>
-                <div className="absolute -inset-2 bg-gradient-to-r from-[#16f2b3]/20 to-blue-500/20 blur-lg rounded-lg"></div>
+                <div className="absolute -inset-1 sm:-inset-2 bg-gradient-to-r from-[#16f2b3]/20 to-blue-500/20 blur-lg rounded-lg"></div>
                 <svg
-                  className="absolute w-full -bottom-2 z-10"
+                  className="absolute w-full -bottom-1 sm:-bottom-2 z-10"
                   height="8"
                   viewBox="0 0 100 8"
                   preserveAspectRatio="none"
@@ -102,8 +102,8 @@ function HeroSection() {
                 : "opacity-0 translate-y-8"
             }`}
           >
-            <div className="text-center space-y-6">
-              <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            <div className="text-center space-y-4 sm:space-y-6">
+              <p className="text-base sm:text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed px-2">
                 From concept to launch in{" "}
                 <span className="text-[#16f2b3] font-semibold">30 days</span> or
                 less. Get a professional, scalable product that drives results.
@@ -154,7 +154,7 @@ function HeroSection() {
                 : "opacity-0 translate-y-8"
             }`}
           >
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex flex-row gap-3 sm:gap-4 justify-center items-center w-full">
               <Link
                 className="flex items-center gap-3"
                 href="https://calendly.com/surendrapandar/30min"
@@ -171,9 +171,11 @@ function HeroSection() {
               <Link href="#ourwork">
                 <Button
                   variant="outline"
-                  className="border-gray-600 text-gray-300 hover:text-white hover:border-[#16f2b3] px-8 py-6 rounded-xl transition-all hover:scale-105"
+                  className="border-gray-600 text-gray-300 hover:text-white hover:border-[#16f2b3] px-4 py-3 sm:px-6 sm:py-4 rounded-xl transition-all hover:scale-105 min-w-[140px]"
                 >
-                  <span className="text-xl font-medium">View Past Work</span>
+                  <span className="text-base sm:text-xl font-medium">
+                    View Past Work
+                  </span>
                 </Button>
               </Link>
             </div>
