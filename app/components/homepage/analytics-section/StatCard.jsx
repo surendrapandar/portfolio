@@ -58,17 +58,17 @@ const StatCard = ({ stat, isVisible, index, startCounting }) => {
       style={{ transitionDelay: `${index * 100}ms` }}
     >
       <div
-        className={`relative p-6 rounded-2xl ${stat.bgColor} border ${stat.borderColor} backdrop-blur-sm hover:scale-105 transition-transform duration-300`}
+        className={`relative p-6 rounded-2xl ${stat.bgColor} border ${stat.borderColor} backdrop-blur-sm hover:scale-105 transition-transform duration-300 text-center md:text-left`}
       >
         {/* Icon */}
         <div
-          className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${stat.color} mb-4`}
+          className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${stat.color} mb-4 mx-auto md:mx-0`}
         >
           <IconComponent className="w-6 h-6 text-white" />
         </div>
 
         {/* Value */}
-        <div className="mb-2">
+        <div className="mb-2 text-center md:text-left">
           <span className="text-3xl font-bold text-white">
             {displayValue}
             {startCounting && displayValue > 0 ? stat.suffix : ""}
@@ -76,10 +76,14 @@ const StatCard = ({ stat, isVisible, index, startCounting }) => {
         </div>
 
         {/* Label */}
-        <h3 className="text-lg font-semibold text-white mb-1">{stat.label}</h3>
+        <h3 className="text-lg font-semibold text-white mb-1 text-center md:text-left">
+          {stat.label}
+        </h3>
 
         {/* Description */}
-        <p className="text-sm text-gray-400">{stat.description}</p>
+        <p className="text-sm text-gray-400 text-center md:text-left">
+          {stat.description}
+        </p>
 
         {/* Hover effect */}
         <div

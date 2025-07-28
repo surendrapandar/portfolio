@@ -31,7 +31,7 @@ function Reviews() {
         className="absolute top-0 -z-10"
       />
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center text-white mb-24 mt-10">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center text-white mb-24 mt-10">
           People <span className="text-[#16f2b3]">Love</span> Working With US
         </h2>
         <div className="max-w-6xl mx-auto ">
