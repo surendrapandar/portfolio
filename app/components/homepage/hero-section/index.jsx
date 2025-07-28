@@ -62,7 +62,7 @@ function HeroSection() {
                 : "opacity-0 translate-y-8"
             }`}
           >
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-center leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-center leading-tight">
               Launch your{" "}
               <span
                 className={`text-[#16f2b3] inline-block min-w-[180px] sm:min-w-[350px] transition-all duration-500 ${
@@ -103,7 +103,7 @@ function HeroSection() {
             }`}
           >
             <div className="text-center space-y-4 sm:space-y-6">
-              <p className="text-base sm:text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed px-2">
+              <p className="text-[12px] sm:text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed px-2">
                 From concept to launch in{" "}
                 <span className="text-[#16f2b3] font-semibold">30 days</span> or
                 less. Get a professional, scalable product that drives results.
@@ -159,12 +159,15 @@ function HeroSection() {
                 className="flex items-center gap-3"
                 href="https://calendly.com/surendrapandar/30min"
               >
-                <Button className="bg-[#16f2b3] hover:bg-[#37e0b0] px-8 py-6 rounded-xl shadow-2xl transform transition-all hover:scale-105 hover:shadow-[#16f2b3]/25 group">
-                  <CalendarRange className="text-gray-800 text-xl" />
-                  <span className="text-gray-800 text-xl font-bold">
-                    Let&apos;s Talk & Build
+                <Button className="bg-[#16f2b3] hover:bg-[#37e0b0] px-4 py-3 sm:px-8 sm:py-6 rounded-xl shadow-2xl transform transition-all hover:scale-105 hover:shadow-[#16f2b3]/25 group min-w-[100px] sm:min-w-[180px]">
+                  <CalendarRange className="text-gray-800 text-base sm:text-xl" />
+                  <span className="text-gray-800 text-xs font-bold sm:text-xl">
+                    <span className="block sm:hidden">Let's Talk</span>
+                    <span className="hidden sm:block">
+                      Let&apos;s Talk & Build
+                    </span>
                   </span>
-                  <ArrowRight className="text-gray-800 text-xl group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="text-gray-800 text-base sm:text-xl group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
 
