@@ -41,8 +41,9 @@ const duplicatedImages = [...images, ...images, ...images];
 export default function ProjectGallery() {
   const scrollRef = useRef(null);
 
+  // Set SSR default width to desktop for consistent desktop card size on refresh
   const [windowWidth, setWindowWidth] = React.useState(
-    typeof window !== "undefined" ? window.innerWidth : 375
+    typeof window !== "undefined" ? window.innerWidth : 1440
   );
 
   useEffect(() => {
@@ -129,7 +130,12 @@ export default function ProjectGallery() {
             // Make mobile cards much smaller
             // Slightly increase mobile card size
             let minWidth, maxWidth, height;
-            if (windowWidth < 480) {
+            // Always use large size for desktop (width >= 1024)
+            if (windowWidth >= 1024) {
+              minWidth = isMobileImage ? 600 : 700;
+              maxWidth = minWidth;
+              height = 500;
+            } else if (windowWidth < 480) {
               minWidth = isMobileImage ? 200 : 240;
               maxWidth = minWidth;
               height = 180;
@@ -138,7 +144,7 @@ export default function ProjectGallery() {
               maxWidth = minWidth;
               height = 160;
             } else {
-              minWidth = isMobileImage ? 400 : 700;
+              minWidth = isMobileImage ? 600 : 700;
               maxWidth = minWidth;
               height = 500;
             }
