@@ -83,10 +83,10 @@ const Projects = () => {
   return (
     <section id="ourwork" className="py-20 bg-gray-900">
       <div className="container mx-auto px-4">
-        <h2 className="text-5xl font-extrabold text-center text-white mb-20">
+        <h2 className="sm:text-5xl text-4xl font-extrabold text-center text-white mb-20 -mt-10 sm:mt-0">
           Our Recent <span className="text-[#16f2b3]">Work</span>
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto -mt-10 sm:mt-0">
           {projects.map((project, index) => (
             <div
               key={index}

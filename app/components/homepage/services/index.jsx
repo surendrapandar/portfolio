@@ -37,7 +37,7 @@ export default function OurServices() {
   ];
 
   return (
-    <section className="relative bg-gray-900 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative bg-gray-900 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden ">
       {/* Decorative Backgrounds */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-[#16f2b3] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse"></div>
       <div className="absolute bottom-20 right-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse"></div>
@@ -45,16 +45,16 @@ export default function OurServices() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-800 border border-gray-700 mb-6">
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-800 border border-gray-700 mb-6 ">
             <Cloud className="w-4 h-4 text-[#16f2b3] mr-2" />
             <span className="text-sm text-gray-300 font-medium">
               Our Services
             </span>
           </div>
-          <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          <h2 className="text-4xl sm:text-6xl font-bold text-white mb-6">
             What We <span style={{ color: "#16f2b3" }}>Offer</span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="sm:text-xl text-[12px] text-gray-400 max-w-2xl mx-auto leading-relaxed">
             We deliver cutting-edge solutions that transform your business ideas
             into powerful digital experiences.
           </p>
@@ -71,7 +71,9 @@ export default function OurServices() {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Icon with Gradient Glow */}
-                <div className={`mb-8 flex items-left justify-left`}>
+                <div
+                  className={`mb-8 sm:flex sm:items-left sm:justify-left items-center justify-center flex`}
+                >
                   <div
                     className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center shadow-lg shadow-[#16f2b3]/25 group-hover:shadow-[#16f2b3]/40 transition-all duration-300 animate-fade-in-up`}
                   >
@@ -79,12 +81,15 @@ export default function OurServices() {
                   </div>
                 </div>
                 {/* Title */}
-                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-[#16f2b3] transition-colors duration-300">
+                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-[#16f2b3] transition-colors duration-300 items-center flex justify-center">
                   {service.title}
                 </h3>
                 {/* Description */}
-                <p className="text-gray-400 leading-relaxed text-lg">
-                  {service.description}
+                <p className="text-gray-400 leading-relaxed sm:text-lg text-[14px] text-center">
+                  {/* Responsive 3-line clamp for mobile, limit max width and increase font size */}
+                  <span className="block text-center text-gray-400 leading-relaxed text-base sm:text-lg mx-auto max-w-[250px] sm:max-w-full line-clamp-3">
+                    {service.description}
+                  </span>
                 </p>
               </div>
             );

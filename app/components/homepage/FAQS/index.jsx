@@ -35,10 +35,10 @@ export default function FaqSection() {
     <div className="min-h-screen bg-slate-900 py-16 px-4 mt-24">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             Frequently Asked <span className="text-[#16f2b3]">Questions</span>
           </h1>
-          <p className="text-slate-300 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-300 text-[12px] sm:text-lg max-w-2xl mx-auto">
             Have questions about our MVP development process? Find answers to
             common questions below.
           </p>
