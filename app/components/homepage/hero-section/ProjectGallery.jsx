@@ -40,9 +40,9 @@ const duplicatedImages = [...images, ...images, ...images];
 
 export default function ProjectGallery() {
   const scrollRef = useRef(null);
-  // Set default window width for SSR and first render to avoid image size jump
+
   const [windowWidth, setWindowWidth] = React.useState(
-    typeof window !== "undefined" ? window.innerWidth : 1024
+    typeof window !== "undefined" ? window.innerWidth : 375
   );
 
   useEffect(() => {
@@ -126,15 +126,22 @@ export default function ProjectGallery() {
               img.src === "/image/Frame.png";
 
             // Use windowWidth for sizing, fallback to default for SSR
-            const minWidth = isMobileImage
-              ? windowWidth < 768
-                ? 200
-                : 400
-              : windowWidth < 768
-              ? 280
-              : 700;
-            const maxWidth = minWidth;
-            const height = windowWidth < 768 ? 200 : 500;
+            // Make mobile cards much smaller
+            // Slightly increase mobile card size
+            let minWidth, maxWidth, height;
+            if (windowWidth < 480) {
+              minWidth = isMobileImage ? 200 : 240;
+              maxWidth = minWidth;
+              height = 180;
+            } else if (windowWidth < 768) {
+              minWidth = isMobileImage ? 160 : 220;
+              maxWidth = minWidth;
+              height = 160;
+            } else {
+              minWidth = isMobileImage ? 400 : 700;
+              maxWidth = minWidth;
+              height = 500;
+            }
 
             return (
               <div
