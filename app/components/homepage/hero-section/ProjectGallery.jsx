@@ -14,6 +14,7 @@ const images = [
   {
     src: "/image/Frame.png",
     alt: "Dashboard Design",
+    isMobile: true,
   },
   {
     src: "/image/kashish.png",
@@ -45,21 +46,19 @@ export default function ProjectGallery() {
 
     let scrollAmount = 0;
     const scrollStep = 5;
-    const scrollDelay = 20; // milliseconds between steps (increased for slower scroll)
+    const scrollDelay = 20;
     let intervalId;
 
     const autoScroll = () => {
       if (scrollContainer) {
         scrollAmount += scrollStep;
-
         // Get one set width (original images length * (card width + gap))
-        const oneSetWidth = images.length * (700 + 8); // 700px card + 8px gap
+        const oneSetWidth =
+          images.length * (window.innerWidth < 768 ? 280 + 16 : 700 + 16);
 
-        // Reset to start when one complete set has scrolled
         if (scrollAmount >= oneSetWidth) {
           scrollAmount = 0;
         }
-
         scrollContainer.scrollLeft = scrollAmount;
       }
     };
@@ -75,10 +74,8 @@ export default function ProjectGallery() {
       }
     };
 
-    // Start initial scrolling
     startScrolling();
 
-    // Pause scrolling on hover
     const handleMouseEnter = () => {
       stopScrolling();
     };
@@ -100,148 +97,121 @@ export default function ProjectGallery() {
   }, []);
 
   return (
-    <section className="w-full pt-10 pb-16 px-2">
-      <div ref={scrollRef} className="overflow-x-auto scrollbar-hide">
-        <div className="flex gap-4 min-w-max pb-2">
-          {duplicatedImages.map((img, idx) => (
-            <div
-              key={idx}
-              className={
-                img.src === "/image/mobile-black.png" ||
-                img.src === "/image/Frame.png"
-                  ? "flex-shrink-0 flex items-center justify-center bg-transparent rounded-3xl"
-                  : "flex-shrink-0 rounded-3xl overflow-hidden relative group hover:scale-105 transition-all duration-300 shadow-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-[#16f2b3]/20 backdrop-blur-sm"
-              }
-              style={{
-                minWidth:
-                  img.src === "/image/mobile-black.png" ||
-                  img.src === "/image/Frame.png"
-                    ? 400
-                    : 700,
-                maxWidth:
-                  img.src === "/image/mobile-black.png" ||
-                  img.src === "/image/Frame.png"
-                    ? 400
-                    : 700,
-                height:
-                  img.src === "/image/mobile-black.png" ||
-                  img.src === "/image/Frame.png"
-                    ? 500
-                    : 500,
-                background:
-                  img.src === "/image/mobile-black.png" ||
-                  img.src === "/image/Frame.png"
-                    ? "transparent"
-                    : "linear-gradient(145deg, #1a1a1a 0%, rgba(22, 242, 179, 0.05) 100%)",
-              }}
-            >
+    <section className="w-full pt-10 pb-16">
+      <div
+        ref={scrollRef}
+        className="overflow-x-auto scrollbar-hide w-full"
+        style={{ width: "100vw", marginLeft: "calc(-50vw + 50%)" }}
+      >
+        <div className="flex gap-4 md:gap-4 pb-2 pl-4 md:pl-8">
+          {duplicatedImages.map((img, idx) => {
+            const isMobileImage =
+              img.isMobile ||
+              img.src === "/image/mobile-black.png" ||
+              img.src === "/image/Frame.png";
+
+            return (
               <div
+                key={idx}
                 className={
-                  img.src === "/image/mobile-black.png" ||
-                  img.src === "/image/Frame.png"
-                    ? "w-full h-full flex items-center justify-center"
-                    : "p-4 w-full h-full"
+                  isMobileImage
+                    ? "flex-shrink-0 flex items-center justify-center bg-transparent"
+                    : "flex-shrink-0 rounded-3xl overflow-hidden relative group hover:scale-105 transition-all duration-300 shadow-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-[#16f2b3]/20 backdrop-blur-sm"
                 }
+                style={{
+                  minWidth: isMobileImage
+                    ? window.innerWidth < 768
+                      ? 200
+                      : 400
+                    : window.innerWidth < 768
+                    ? 280
+                    : 700,
+                  maxWidth: isMobileImage
+                    ? window.innerWidth < 768
+                      ? 200
+                      : 400
+                    : window.innerWidth < 768
+                    ? 280
+                    : 700,
+                  height:
+                    window.innerWidth < 768 ? 200 : isMobileImage ? 500 : 500,
+                  background: isMobileImage ? "transparent" : undefined,
+                }}
               >
-                {img.src === "/image/kashish.gif" ? (
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      display: "flex",
-                      alignItems: "stretch",
-                      justifyContent: "center",
-                      overflow: "hidden",
-                      background: "#18181b",
-                      padding: 0,
-                    }}
-                  >
-                    <img
-                      src={img.src}
-                      alt={img.alt}
+                <div
+                  className={
+                    isMobileImage
+                      ? "w-full h-full flex items-center justify-center"
+                      : "p-2 md:p-4 w-full h-full"
+                  }
+                >
+                  {img.src === "/image/kashish.gif" ? (
+                    <div
                       style={{
                         width: "100%",
                         height: "100%",
-                        maxWidth: "100%",
-                        maxHeight: "100%",
-                        objectFit: "cover",
-                        display: "block",
-                        margin: 0,
-                        borderRadius: "1rem",
-                        boxShadow: "0 0 0 0 transparent",
+                        display: "flex",
+                        alignItems: "stretch",
+                        justifyContent: "center",
+                        overflow: "hidden",
+                        background: "#18181b",
+                        padding: 0,
                       }}
-                    />
-                  </div>
-                ) : img.isGif ? (
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      overflow: "hidden",
-                      background: "#18181b",
-                      padding: 0,
-                    }}
-                  >
-                    <img
-                      src={img.src}
-                      alt={img.alt}
+                    >
+                      <img
+                        src={img.src || "/placeholder.svg"}
+                        alt={img.alt}
+                        style={{
+                          width: "100%",
+                          height: "100%",
+                          maxWidth: "100%",
+                          maxHeight: "100%",
+                          objectFit: "cover",
+                          display: "block",
+                          margin: 0,
+                          borderRadius: isMobileImage ? "0" : "1rem",
+                          boxShadow: "0 0 0 0 transparent",
+                        }}
+                      />
+                    </div>
+                  ) : (
+                    <div
                       style={{
-                        width: "auto",
-                        height: "90%",
-                        maxWidth: "100%",
-                        maxHeight: "100%",
-                        objectFit: "contain",
-                        display: "block",
-                        margin: 0,
-                        borderRadius: "1rem",
-                      }}
-                    />
-                  </div>
-                ) : (
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      overflow: "hidden",
-                      background: "#18181b",
-                      padding: 0,
-                    }}
-                  >
-                    <Image
-                      src={img.src}
-                      alt={img.alt}
-                      width={700}
-                      height={400}
-                      className={
-                        img.src === "/image/mobile-black.png" ||
-                        img.src === "/image/Frame.png"
-                          ? "object-contain w-full h-full max-h-[500px]"
-                          : "object-cover w-full h-full rounded-2xl"
-                      }
-                      style={{
-                        objectFit:
-                          img.src === "/image/mobile-black.png" ||
-                          img.src === "/image/Frame.png"
-                            ? "contain"
-                            : "cover",
                         width: "100%",
                         height: "100%",
-                        display: "block",
-                        margin: 0,
-                        borderRadius: "1rem",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        overflow: "hidden",
+                        background: isMobileImage ? "transparent" : "#18181b",
+                        padding: 0,
                       }}
-                    />
-                  </div>
-                )}
+                    >
+                      <Image
+                        src={img.src || "/placeholder.svg"}
+                        alt={img.alt}
+                        width={700}
+                        height={400}
+                        className={
+                          isMobileImage
+                            ? "object-contain w-full h-full"
+                            : "object-cover w-full h-full rounded-2xl"
+                        }
+                        style={{
+                          objectFit: isMobileImage ? "contain" : "cover",
+                          width: "100%",
+                          height: "100%",
+                          display: "block",
+                          margin: 0,
+                          borderRadius: isMobileImage ? "0" : "1rem",
+                        }}
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
       <style jsx global>{`
