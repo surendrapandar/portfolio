@@ -13,13 +13,12 @@ const images = [
 ];
 
 // Duplicate images for seamless infinite scroll
-const duplicatedImages = [...images, ...images, ...images];
+const duplicatedImages = [...images, ...images, images];
 
 export default function ProjectGallery() {
   const scrollRef = useRef(null);
-  // Initialize windowWidth to 0 for SSR, it will be updated on client mount
   const [windowWidth, setWindowWidth] = useState(0);
-  const [isMounted, setIsMounted] = useState(false); // New state to track if component is mounted
+  const [isMounted, setIsMounted] = useState(false);
 
   const isMobileImage = useCallback(
     (img) =>
@@ -29,13 +28,40 @@ export default function ProjectGallery() {
     []
   );
 
+  // Function to calculate the width of one set of images for scrolling
+  const calculateOneSetWidth = useCallback(
+    (currentWindowWidth, imagesArray, isMobileImageFunc) => {
+      let totalWidth = 0;
+      const gap = currentWindowWidth >= 768 ? 12 : 8; // Gap between cards
+
+      imagesArray.forEach((img) => {
+        const isMobileImg = isMobileImageFunc(img);
+        let cardWidth;
+
+        if (currentWindowWidth >= 768) {
+          cardWidth = isMobileImg ? 400 : 700;
+        } else if (currentWindowWidth < 480) {
+          cardWidth = isMobileImg ? 250 : 260; // User's desired increased width
+        } else if (currentWindowWidth < 640) {
+          cardWidth = isMobileImg ? 240 : 280; // User's desired increased width
+        } else {
+          // windowWidth < 768
+          cardWidth = isMobileImg ? 180 : 220; // User's desired increased width
+        }
+        totalWidth += cardWidth + gap;
+      });
+      return totalWidth;
+    },
+    []
+  );
+
   useEffect(() => {
-    setIsMounted(true); // Component has mounted on the client
-    setWindowWidth(window.innerWidth); // Set actual width on client
+    setIsMounted(true);
+    setWindowWidth(window.innerWidth);
 
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
-      console.log("Window resized to:", window.innerWidth); // Debugging: Check this in your browser console
+      console.log("Window resized to:", window.innerWidth);
     };
     window.addEventListener("resize", handleResize);
 
@@ -50,14 +76,12 @@ export default function ProjectGallery() {
     const autoScroll = () => {
       if (scrollContainer) {
         scrollAmount += scrollStep;
-        // Use the actual windowWidth for scroll calculation
-        const oneSetWidth =
-          images.length *
-          (windowWidth < 768
-            ? windowWidth < 480
-              ? 100 + 8
-              : 140 + 8
-            : 700 + 12); // Adjusted mobile widths
+        // Use the accurate calculation for oneSetWidth
+        const oneSetWidth = calculateOneSetWidth(
+          windowWidth,
+          images,
+          isMobileImage
+        );
         if (scrollAmount >= oneSetWidth) {
           scrollAmount = 0;
         }
@@ -79,7 +103,6 @@ export default function ProjectGallery() {
       }
     };
 
-    // Only start scrolling if mounted and windowWidth is known
     if (isMounted && windowWidth > 0) {
       startScrolling();
     }
@@ -91,7 +114,6 @@ export default function ProjectGallery() {
       startScrolling();
     };
 
-    // Add event listeners only if scrollContainer exists
     if (scrollContainer) {
       scrollContainer.addEventListener("mouseenter", handleMouseEnter);
       scrollContainer.addEventListener("mouseleave", handleMouseLeave);
@@ -105,13 +127,11 @@ export default function ProjectGallery() {
       }
       window.removeEventListener("resize", handleResize);
     };
-  }, [windowWidth, images.length, isMounted]); // Added isMounted to dependencies
+  }, [windowWidth, images, isMounted, calculateOneSetWidth, isMobileImage]); // Added images and isMobileImage to dependencies
 
-  // If not mounted yet, render a minimal placeholder or nothing to avoid large cards on SSR
   if (!isMounted) {
     return (
       <section className="w-full pt-10 pb-16">
-        {/* Optional: Render a skeleton or empty div for SSR */}
         <div className="w-full h-[200px] bg-gray-800 animate-pulse"></div>
       </section>
     );
@@ -119,9 +139,6 @@ export default function ProjectGallery() {
 
   return (
     <section className="w-full pt-10 pb-16 ">
-      {/* Debugging aid: Display current window width */}
-      <div className="fixed top-0 left-0 bg-black text-white p-2 z-50 text-xs"></div>
-
       <div
         ref={scrollRef}
         className="scrollbar-hide w-full"
@@ -137,28 +154,24 @@ export default function ProjectGallery() {
 
             let minWidth, maxWidth, height;
             if (windowWidth >= 768) {
-              // Desktop sizes: fixed as per your original request
               minWidth = isMobileImg ? 400 : 700;
               maxWidth = minWidth;
               height = 500;
             } else if (windowWidth < 480) {
-              // Extra small mobile phones (e.g., iPhone SE, older Androids)
-              minWidth = isMobileImg ? 250 : 260; // Made even smaller
+              minWidth = isMobileImg ? 250 : 260; // User's desired increased width
               maxWidth = minWidth;
-              height = 180; // Made even smaller
+              height = 180; // Adjusted height for increased width
             } else if (windowWidth < 640) {
-              // Small mobile phones (e.g., iPhone 15, most Androids)
-              minWidth = isMobileImg ? 240 : 280; // Made even smaller
+              minWidth = isMobileImg ? 240 : 280; // User's desired increased width
               maxWidth = minWidth;
-              height = 200; // Made even smaller
+              height = 200; // Adjusted height for increased width
             } else {
-              // Medium mobile phones / small tablets (640px to 767px)
-              minWidth = isMobileImg ? 180 : 220; // Made even smaller
+              // windowWidth < 768
+              minWidth = isMobileImg ? 180 : 220; // User's desired increased width
               maxWidth = minWidth;
-              height = 160; // Made even smaller
+              height = 160; // Adjusted height for increased width
             }
 
-            // Debugging: Check these values in your browser console for each card
             console.log(
               `Card ${idx}: windowWidth=${windowWidth}, isMobileImg=${isMobileImg}, minWidth=${minWidth}, height=${height}`
             );
@@ -201,8 +214,8 @@ export default function ProjectGallery() {
                       <Image
                         src={img.src || "/placeholder.svg"}
                         alt={img.alt}
-                        width={800}
-                        height={600}
+                        width={minWidth} // Dynamic width
+                        height={height} // Dynamic height
                         style={{
                           width: "100%",
                           height: "100%",
@@ -233,8 +246,8 @@ export default function ProjectGallery() {
                       <Image
                         src={img.src || "/placeholder.svg"}
                         alt={img.alt}
-                        width={700}
-                        height={400}
+                        width={minWidth} // Dynamic width
+                        height={height} // Dynamic height
                         className={
                           isMobileImg
                             ? "object-contain w-full h-full"
