@@ -31,8 +31,8 @@ function HeroSection() {
         setCurrentServiceIndex((prev) => (prev + 1) % services.length);
         setDisplayText(services[(currentServiceIndex + 1) % services.length]);
         setIsAnimating(false);
-      }, 100); // Even faster animation
-    }, 800); // Even faster switch
+      }, 500); // Even faster animation
+    }, 1000); // Even faster switch
 
     return () => clearInterval(interval);
   }, [currentServiceIndex]);
