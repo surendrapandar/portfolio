@@ -1,54 +1,68 @@
 "use client";
-import React from "react";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 const images = [
-  {
-    src: "/image/laptop.png",
-    alt: "Dashboard Analytics View",
-  },
-  {
-    src: "/image/emoji.png",
-    alt: "Emoji Reactions",
-  },
-  {
-    src: "/image/Frame.png",
-    alt: "Dashboard Design",
-    isMobile: true,
-  },
-  {
-    src: "/image/kashish.png",
-    alt: "Portfolio Showcase",
-  },
-  {
-    src: "/image/feedback.png",
-    alt: "Analytics Dashboard",
-  },
-  {
-    src: "/image/fortiche.png",
-    alt: "Screenshot 1",
-  },
-  {
-    src: "/image/inventory.png",
-    alt: "Screenshot 2",
-  },
+  { src: "/image/laptop.png", alt: "Dashboard Analytics View" },
+  { src: "/image/emoji.png", alt: "Emoji Reactions" },
+  { src: "/image/Frame.png", alt: "Dashboard Design", isMobile: true },
+  { src: "/image/kashish.png", alt: "Portfolio Showcase" },
+  { src: "/image/feedback.png", alt: "Analytics Dashboard" },
+  { src: "/image/fortiche.png", alt: "Screenshot 1" },
+  { src: "/image/inventory.png", alt: "Screenshot 2" },
 ];
 
 // Duplicate images for seamless infinite scroll
-const duplicatedImages = [...images, ...images, ...images];
+const duplicatedImages = [...images, ...images, images];
 
 export default function ProjectGallery() {
   const scrollRef = useRef(null);
-  // Set default window width for SSR and first render to avoid image size jump
-  const [windowWidth, setWindowWidth] = React.useState(
-    typeof window !== "undefined" ? window.innerWidth : 1024
+  const [windowWidth, setWindowWidth] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
+
+  const isMobileImage = useCallback(
+    (img) =>
+      img.isMobile ||
+      img.src === "/image/mobile-black.png" ||
+      img.src === "/image/Frame.png",
+    []
+  );
+
+  // Function to calculate the width of one set of images for scrolling
+  const calculateOneSetWidth = useCallback(
+    (currentWindowWidth, imagesArray, isMobileImageFunc) => {
+      let totalWidth = 0;
+      const gap = currentWindowWidth >= 768 ? 12 : 8; // Gap between cards
+
+      imagesArray.forEach((img) => {
+        const isMobileImg = isMobileImageFunc(img);
+        let cardWidth;
+
+        if (currentWindowWidth >= 768) {
+          cardWidth = isMobileImg ? 400 : 700;
+        } else if (currentWindowWidth < 480) {
+          cardWidth = isMobileImg ? 250 : 260; // User's desired increased width
+        } else if (currentWindowWidth < 640) {
+          cardWidth = isMobileImg ? 240 : 280; // User's desired increased width
+        } else {
+          // windowWidth < 768
+          cardWidth = isMobileImg ? 180 : 220; // User's desired increased width
+        }
+        totalWidth += cardWidth + gap;
+      });
+      return totalWidth;
+    },
+    []
   );
 
   useEffect(() => {
-    // Only run on client
+    setIsMounted(true);
     setWindowWidth(window.innerWidth);
-    const handleResize = () => setWindowWidth(window.innerWidth);
+
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      console.log("Window resized to:", window.innerWidth);
+    };
     window.addEventListener("resize", handleResize);
 
     const scrollContainer = scrollRef.current;
@@ -57,15 +71,17 @@ export default function ProjectGallery() {
     let scrollAmount = 0;
     const scrollStep = 5;
     const scrollDelay = 20;
-    let intervalId;
+    let intervalId = null;
 
     const autoScroll = () => {
       if (scrollContainer) {
         scrollAmount += scrollStep;
-        // Get one set width (original images length * (card width + gap))
-        const oneSetWidth =
-          images.length * (windowWidth < 768 ? 280 + 8 : 700 + 12);
-
+        // Use the accurate calculation for oneSetWidth
+        const oneSetWidth = calculateOneSetWidth(
+          windowWidth,
+          images,
+          isMobileImage
+        );
         if (scrollAmount >= oneSetWidth) {
           scrollAmount = 0;
         }
@@ -74,28 +90,34 @@ export default function ProjectGallery() {
     };
 
     const startScrolling = () => {
-      intervalId = setInterval(autoScroll, scrollDelay);
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+      intervalId = window.setInterval(autoScroll, scrollDelay);
     };
 
     const stopScrolling = () => {
       if (intervalId) {
-        clearInterval(intervalId);
+        window.clearInterval(intervalId);
         intervalId = null;
       }
     };
 
-    startScrolling();
+    if (isMounted && windowWidth > 0) {
+      startScrolling();
+    }
 
     const handleMouseEnter = () => {
       stopScrolling();
     };
-
     const handleMouseLeave = () => {
       startScrolling();
     };
 
-    scrollContainer.addEventListener("mouseenter", handleMouseEnter);
-    scrollContainer.addEventListener("mouseleave", handleMouseLeave);
+    if (scrollContainer) {
+      scrollContainer.addEventListener("mouseenter", handleMouseEnter);
+      scrollContainer.addEventListener("mouseleave", handleMouseLeave);
+    }
 
     return () => {
       stopScrolling();
@@ -105,7 +127,15 @@ export default function ProjectGallery() {
       }
       window.removeEventListener("resize", handleResize);
     };
-  }, [windowWidth]);
+  }, [windowWidth, images, isMounted, calculateOneSetWidth, isMobileImage]); // Added images and isMobileImage to dependencies
+
+  if (!isMounted) {
+    return (
+      <section className="w-full pt-10 pb-16">
+        <div className="w-full h-[200px] bg-gray-800 animate-pulse"></div>
+      </section>
+    );
+  }
 
   return (
     <section className="w-full pt-10 pb-16 ">
@@ -120,27 +150,37 @@ export default function ProjectGallery() {
       >
         <div className="flex gap-2 md:gap-3 pb-2 pl-4 md:pl-8">
           {duplicatedImages.map((img, idx) => {
-            const isMobileImage =
-              img.isMobile ||
-              img.src === "/image/mobile-black.png" ||
-              img.src === "/image/Frame.png";
+            const isMobileImg = isMobileImage(img);
 
-            // Use windowWidth for sizing, fallback to default for SSR
-            const minWidth = isMobileImage
-              ? windowWidth < 768
-                ? 200
-                : 400
-              : windowWidth < 768
-              ? 280
-              : 700;
-            const maxWidth = minWidth;
-            const height = windowWidth < 768 ? 200 : 500;
+            let minWidth, maxWidth, height;
+            if (windowWidth >= 768) {
+              minWidth = isMobileImg ? 400 : 700;
+              maxWidth = minWidth;
+              height = 500;
+            } else if (windowWidth < 480) {
+              minWidth = isMobileImg ? 250 : 260; // User's desired increased width
+              maxWidth = minWidth;
+              height = 180; // Adjusted height for increased width
+            } else if (windowWidth < 640) {
+              minWidth = isMobileImg ? 240 : 280; // User's desired increased width
+              maxWidth = minWidth;
+              height = 200; // Adjusted height for increased width
+            } else {
+              // windowWidth < 768
+              minWidth = isMobileImg ? 180 : 220; // User's desired increased width
+              maxWidth = minWidth;
+              height = 160; // Adjusted height for increased width
+            }
+
+            console.log(
+              `Card ${idx}: windowWidth=${windowWidth}, isMobileImg=${isMobileImg}, minWidth=${minWidth}, height=${height}`
+            );
 
             return (
               <div
                 key={idx}
                 className={
-                  isMobileImage
+                  isMobileImg
                     ? "flex-shrink-0 flex items-center justify-center bg-transparent"
                     : "flex-shrink-0 rounded-3xl overflow-hidden relative group hover:scale-105 transition-all duration-300 shadow-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-[#16f2b3]/20 backdrop-blur-sm"
                 }
@@ -148,12 +188,12 @@ export default function ProjectGallery() {
                   minWidth,
                   maxWidth,
                   height,
-                  background: isMobileImage ? "transparent" : undefined,
+                  background: isMobileImg ? "transparent" : undefined,
                 }}
               >
                 <div
                   className={
-                    isMobileImage
+                    isMobileImg
                       ? "w-full h-full flex items-center justify-center"
                       : "p-2 md:p-4 w-full h-full"
                   }
@@ -174,8 +214,8 @@ export default function ProjectGallery() {
                       <Image
                         src={img.src || "/placeholder.svg"}
                         alt={img.alt}
-                        width={800}
-                        height={600}
+                        width={minWidth} // Dynamic width
+                        height={height} // Dynamic height
                         style={{
                           width: "100%",
                           height: "100%",
@@ -183,7 +223,7 @@ export default function ProjectGallery() {
                           maxHeight: "100%",
                           display: "block",
                           margin: 0,
-                          borderRadius: isMobileImage ? "0" : "1rem",
+                          borderRadius: isMobileImg ? "0" : "1rem",
                           boxShadow: "0 0 0 0 transparent",
                           objectFit: "cover",
                         }}
@@ -199,17 +239,17 @@ export default function ProjectGallery() {
                         alignItems: "center",
                         justifyContent: "center",
                         overflow: "hidden",
-                        background: isMobileImage ? "transparent" : "#18181b",
+                        background: isMobileImg ? "transparent" : "#18181b",
                         padding: 0,
                       }}
                     >
                       <Image
                         src={img.src || "/placeholder.svg"}
                         alt={img.alt}
-                        width={700}
-                        height={400}
+                        width={minWidth} // Dynamic width
+                        height={height} // Dynamic height
                         className={
-                          isMobileImage
+                          isMobileImg
                             ? "object-contain w-full h-full"
                             : "object-cover w-full h-full rounded-2xl"
                         }
@@ -218,8 +258,8 @@ export default function ProjectGallery() {
                           height: "100%",
                           display: "block",
                           margin: 0,
-                          borderRadius: isMobileImage ? "0" : "1rem",
-                          objectFit: isMobileImage ? "contain" : "cover",
+                          borderRadius: isMobileImg ? "0" : "1rem",
+                          objectFit: isMobileImg ? "contain" : "cover",
                         }}
                       />
                     </div>
@@ -241,12 +281,10 @@ export default function ProjectGallery() {
           width: 0;
           height: 0;
         }
-
         /* Prevent horizontal scroll on body */
         body {
           overflow-x: hidden;
         }
-
         /* Ensure no horizontal scroll on any parent containers */
         html,
         body {
