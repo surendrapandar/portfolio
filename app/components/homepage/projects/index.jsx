@@ -39,15 +39,6 @@ const projects = [
 
     tags: ["AI", "Resume", "SaaS"],
   },
-  {
-    title: "AI Code Generator",
-    description:
-      "Generate code snippets from natural language descriptions using AI.",
-    image: "/ai-code-generator.png",
-    demo: "https://www.aicodegenerator.com",
-
-    tags: ["AI", "Code", "Generator"],
-  },
 
   {
     title: "Bullseye App",
