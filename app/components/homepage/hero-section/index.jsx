@@ -78,7 +78,7 @@ function HeroSection() {
                 <div className="mb-2" />
                 in Just{" "}
                 <span className="relative inline-block">
-                  <span className="relative z-10">30 Days</span>
+                  <span className="relative z-10">21 Days</span>
                   <div className="absolute -inset-1 sm:-inset-2 bg-gradient-to-r from-[#16f2b3]/20 to-blue-500/20 blur-lg rounded-lg"></div>
                   <svg
                     className="absolute w-full -bottom-1 sm:-bottom-2 z-10"
@@ -110,7 +110,7 @@ function HeroSection() {
             <div className="text-center space-y-4 sm:space-y-6">
               <p className=" text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed px-2">
                 From concept to launch in{" "}
-                <span className="text-[#16f2b3] font-semibold">30 days</span> or
+                <span className="text-[#16f2b3] font-semibold">21 days</span> or
                 less. Get a professional, scalable product that drives results.
               </p>
 
