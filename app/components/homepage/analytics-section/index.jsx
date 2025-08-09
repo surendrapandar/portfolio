@@ -79,7 +79,7 @@ export default function AnalyticsSection() {
     },
     {
       icon: Zap,
-      value: 3,
+      value: 6,
       label: "Years of Experience",
       description: "Professional expertise",
       color: "from-orange-500 to-yellow-500",

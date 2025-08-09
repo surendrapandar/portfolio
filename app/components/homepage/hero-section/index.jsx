@@ -72,7 +72,7 @@ function HeroSection() {
               </span>
               {/* Mobile: single row, Desktop: original design */}
               <span className="block sm:hidden text-md mt-2">
-                in just 30 days
+                in just 21 days
               </span>
               <span className="hidden sm:inline">
                 <div className="mb-2" />

@@ -5,13 +5,13 @@ import { FiExternalLink } from "react-icons/fi";
 
 const projects = [
   {
-    title: "Writeon",
+    title: "Fortiche",
     description:
-      "AI Powered Tool to Build Your LinkedIn Brand & Audience Effortlessly!",
-    image: "/writeon.png",
-    demo: "https://www.writeon.site",
+      "A Social Ecommerce marketplace platform that connects buyers and sellers.",
+    image: "/image/fortiche.png",
+    demo: "https://www.fortiche.com/",
 
-    tags: ["AI", "LinkedIn", "SaaS"],
+    tags: ["React Native", "Finance", "Trading"],
   },
   {
     title: "AI Emoji Generator",
@@ -31,6 +31,23 @@ const projects = [
 
     tags: ["Feedback", "Analytics", "SaaS"],
   },
+  {
+    title: "Insayy",
+    description: "Connect with Top Creators for 1:1 Mentorship and Guidance",
+    image: "insayy.png",
+    demo: "https://www.insayy.com",
+
+    tags: ["AI", "Resume", "SaaS"],
+  },
+  {
+    title: "AI Code Generator",
+    description:
+      "Generate code snippets from natural language descriptions using AI.",
+    image: "/ai-code-generator.png",
+    demo: "https://www.aicodegenerator.com",
+
+    tags: ["AI", "Code", "Generator"],
+  },
 
   {
     title: "Bullseye App",
@@ -41,15 +58,7 @@ const projects = [
 
     tags: ["React Native", "Finance", "Trading"],
   },
-  {
-    title: "Fortiche",
-    description:
-      "A Social Ecommerce marketplace platform that connects buyers and sellers.",
-    image: "/image/fortiche.png",
-    demo: "https://www.fortiche.com/",
 
-    tags: ["React Native", "Finance", "Trading"],
-  },
   {
     title: "Inventory",
     description:
@@ -58,6 +67,15 @@ const projects = [
     demo: "https://www.inventoryreorder.com/",
 
     tags: ["React Native", "Finance", "Trading"],
+  },
+  {
+    title: "Writeon",
+    description:
+      "AI Powered Tool to Build Your LinkedIn Brand & Audience Effortlessly!",
+    image: "/writeon.png",
+    demo: "https://www.writeon.site",
+
+    tags: ["AI", "LinkedIn", "SaaS"],
   },
   {
     title: "Solution App",
