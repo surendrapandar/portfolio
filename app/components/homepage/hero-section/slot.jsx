@@ -14,6 +14,16 @@ const SlotAvailability = () => {
       { date: "2025-08-01", initialSlots: 8, displayDate: "August 1, 2025" },
       { date: "2025-08-15", initialSlots: 5, displayDate: "August 15, 2025" },
       { date: "2025-09-01", initialSlots: 7, displayDate: "September 1, 2025" },
+      {
+        date: "2025-09-15",
+        initialSlots: 4,
+        displayDate: "September 15, 2025",
+      },
+      {
+        date: "2025-09-30",
+        initialSlots: 2,
+        displayDate: "September 30, 2025",
+      },
       { date: "2025-10-10", initialSlots: 4, displayDate: "October 10, 2025" },
       { date: "2025-11-05", initialSlots: 6, displayDate: "November 5, 2025" },
       { date: "2025-12-20", initialSlots: 3, displayDate: "December 20, 2025" },
