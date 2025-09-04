@@ -10,10 +10,25 @@ const SlotAvailability = () => {
 
   useEffect(() => {
     const slotDates = [
-      { date: "2025-07-23", initialSlots: 3, displayDate: "July 23" },
-      { date: "2025-08-01", initialSlots: 8, displayDate: "August 1" },
-      { date: "2025-08-15", initialSlots: 5, displayDate: "August 15" },
-      { date: "2025-09-01", initialSlots: 7, displayDate: "September 1" },
+      { date: "2025-07-23", initialSlots: 3, displayDate: "July 23, 2025" },
+      { date: "2025-08-01", initialSlots: 8, displayDate: "August 1, 2025" },
+      { date: "2025-08-15", initialSlots: 5, displayDate: "August 15, 2025" },
+      { date: "2025-09-01", initialSlots: 7, displayDate: "September 1, 2025" },
+      { date: "2025-10-10", initialSlots: 4, displayDate: "October 10, 2025" },
+      { date: "2025-11-05", initialSlots: 6, displayDate: "November 5, 2025" },
+      { date: "2025-12-20", initialSlots: 3, displayDate: "December 20, 2025" },
+      { date: "2026-01-15", initialSlots: 5, displayDate: "January 15, 2026" },
+      { date: "2026-02-10", initialSlots: 7, displayDate: "February 10, 2026" },
+      { date: "2026-03-05", initialSlots: 4, displayDate: "March 5, 2026" },
+      { date: "2026-04-18", initialSlots: 6, displayDate: "April 18, 2026" },
+      { date: "2026-05-22", initialSlots: 5, displayDate: "May 22, 2026" },
+      { date: "2026-06-30", initialSlots: 8, displayDate: "June 30, 2026" },
+      { date: "2026-07-25", initialSlots: 3, displayDate: "July 25, 2026" },
+      { date: "2026-08-14", initialSlots: 7, displayDate: "August 14, 2026" },
+      { date: "2026-09-09", initialSlots: 4, displayDate: "September 9, 2026" },
+      { date: "2026-10-20", initialSlots: 6, displayDate: "October 20, 2026" },
+      { date: "2026-11-15", initialSlots: 5, displayDate: "November 15, 2026" },
+      { date: "2026-12-05", initialSlots: 8, displayDate: "December 5, 2026" },
     ];
 
     const calculateAvailableSlots = () => {
