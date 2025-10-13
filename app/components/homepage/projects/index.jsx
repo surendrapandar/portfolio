@@ -5,14 +5,15 @@ import { FiExternalLink } from "react-icons/fi";
 
 const projects = [
   {
-    title: "Fortiche",
+    title: "AI Native Note Intelligence",
     description:
-      "A Social Ecommerce marketplace platform that connects buyers and sellers.",
-    image: "/image/fortiche.png",
-    demo: "https://www.fortiche.com/",
+      "Get smart suggestions, chat with note, summarize key points, and extract action items with a powerful AI-powered note-taking app",
+    image: "/image/chopdi.png",
+    demo: "https://www.ainative.com",
 
-    tags: ["React Native", "Finance", "Trading"],
+    tags: ["AI", "Generative AI", "SaaS"],
   },
+
   {
     title: "AI Emoji Generator",
     description:
@@ -20,7 +21,7 @@ const projects = [
     image: "/emoji.jpg",
     demo: "https://www.emojis.com",
 
-    tags: ["AI", "Generator", "Next.js"],
+    tags: ["AI", "Generative AI", "SaaS"],
   },
   {
     title: "FeedbackHub",
@@ -29,15 +30,24 @@ const projects = [
     image: "/feedbackhub.png",
     demo: "https://feedbackhub.dev",
 
-    tags: ["Feedback", "Analytics", "SaaS"],
+    tags: ["SaaS", "Feedback", "Analytics"],
+  },
+  {
+    title: "Fortiche",
+    description:
+      "A Social Ecommerce marketplace platform that connects buyers and sellers.",
+    image: "/image/fortiche.png",
+    demo: "https://www.fortiche.com/",
+
+    tags: ["Ecommerce", "Marketplace", "Social"],
   },
   {
     title: "Insayy",
     description: "Connect with Top Creators for 1:1 Mentorship and Guidance",
-    image: "insayy.png",
+    image: "/insayy.png",
     demo: "https://www.insayy.com",
 
-    tags: ["AI", "Resume", "SaaS"],
+    tags: ["AI", "Mentorship", "SaaS"],
   },
 
   {
@@ -57,7 +67,7 @@ const projects = [
     image: "/image/inventory.png",
     demo: "https://www.inventoryreorder.com/",
 
-    tags: ["React Native", "Finance", "Trading"],
+    tags: ["Inventory Management", "SaaS", "Analytics"],
   },
   {
     title: "Writeon",
@@ -76,15 +86,6 @@ const projects = [
     demo: "https://play.google.com/store/apps/details?id=com.rootankit.biharboardsolutionclass10",
 
     tags: ["React Native", "Education", "Mobile"],
-  },
-  {
-    title: "Ghori Fashion Designer",
-    description:
-      "A mobile app provide complete Tutorials for learning Sewing from Basic to Advance",
-    image: "/ghorifashiondesigner.png",
-    demo: "https://play.google.com/store/apps/details?id=com.gfd.ghori_fashion",
-
-    tags: ["Flutter", "Education", "Tutorial"],
   },
 ];
 
@@ -108,8 +109,7 @@ const Projects = () => {
                   alt={project.title}
                   width={500}
                   height={300}
-                  objectFit="cover"
-                  className="w-full h-full transition-transform duration-300 transform hover:scale-110"
+                  className="w-full h-full transition-transform duration-300 transform hover:scale-110 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
               </div>

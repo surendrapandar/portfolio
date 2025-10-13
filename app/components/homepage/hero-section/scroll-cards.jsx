@@ -48,6 +48,10 @@ const ScrollCards = () => {
       id: 6,
       image: "/image/screen.png",
     },
+    {
+      id: 7,
+      image: "/image/chopdi.png",
+    },
   ];
 
   // Duplicate projects for seamless scrolling

@@ -10,10 +10,11 @@ const images = [
   { src: "/image/feedback.png", alt: "Analytics Dashboard" },
   { src: "/image/fortiche.png", alt: "Screenshot 1" },
   { src: "/image/inventory.png", alt: "Screenshot 2" },
+  { src: "/image/chopdi.png", alt: "Screenshot 3" },
 ];
 
 // Duplicate images for seamless infinite scroll
-const duplicatedImages = [...images, ...images, images];
+const duplicatedImages = [...images, ...images, ...images];
 
 export default function ProjectGallery() {
   const scrollRef = useRef(null);
