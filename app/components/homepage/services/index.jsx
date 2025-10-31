@@ -14,25 +14,25 @@ import {
 export default function OurServices() {
   const services = [
     {
-      icon: Cloud,
+      icon: Code2,
+      title: "AI Solutions",
+      description:
+        "AI solutions that can actually understand and solve problems.",
+      color: "from-slate-100 to-white",
+    },
+    {
+      icon: Database,
       title: "SaaS Platforms",
       description:
-        "We create powerful SaaS solution that grows with your company and helps you succeed in the long run.",
-      color: "from-[#16f2b3] to-blue-500",
+        "We create scalable SaaS solutions that grow with your company.",
+      color: "from-slate-100 to-white",
     },
     {
       icon: Smartphone,
-      title: "Mobile & Web Apps",
+      title: "Mobile Apps",
       description:
-        "We build fast and smooth apps for phones and websites that your users will love to use every day.",
-      color: "from-pink-400 to-[#16f2b3]",
-    },
-    {
-      icon: Brain,
-      title: "AI-Powered Apps",
-      description:
-        "We make smart apps using AI technology that handle boring tasks automatically and make your business smarter.",
-      color: "from-yellow-400 to-pink-500",
+        "We design and develop smooth custom mobile and web experiences.",
+      color: "from-slate-100 to-white",
     },
   ];
 
@@ -55,8 +55,8 @@ export default function OurServices() {
             What We <span style={{ color: "#16f2b3" }}>Offer</span>
           </h2>
           <p className="sm:text-xl text-[16px] text-gray-400 max-w-2xl mx-auto leading-relaxed">
-            We deliver cutting-edge solutions that transform your business ideas
-            into powerful digital experiences.
+            We only focus on offering services that we can deliver exceptionally
+            well.
           </p>
         </div>
 
