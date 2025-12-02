@@ -22,7 +22,7 @@ function HeroSection() {
 
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
   useEffect(() => {
-    const services = ["Product", "AI Agent", "Application"];
+    const services = ["Product", "Startup", "AI Agent"];
     setIsVisible(true);
 
     const interval = setInterval(() => {
