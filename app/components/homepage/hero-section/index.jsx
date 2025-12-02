@@ -16,13 +16,13 @@ import ProjectGallery from "./ProjectGallery";
 import SlotAvailability from "./slot";
 
 function HeroSection() {
-  const [displayText, setDisplayText] = useState("AI MVP");
+  const [displayText, setDisplayText] = useState("Product");
   const [isAnimating, setIsAnimating] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
   useEffect(() => {
-    const services = ["AI MVP", "Product"];
+    const services = ["Product", "AI Agent", "Application"];
     setIsVisible(true);
 
     const interval = setInterval(() => {
