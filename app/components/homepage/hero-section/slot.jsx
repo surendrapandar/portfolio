@@ -45,7 +45,7 @@ const SlotAvailability = () => {
       const today = new Date();
       // Find the first slot whose date is after today
       const nextAvailableSlot = slotDates.find(
-        (slot) => new Date(slot.date) > today
+        (slot) => new Date(slot.date) > today,
       );
 
       if (!nextAvailableSlot) {
@@ -54,7 +54,7 @@ const SlotAvailability = () => {
 
       const slotDate = new Date(nextAvailableSlot.date);
       const daysUntilSlot = Math.ceil(
-        (slotDate - today) / (1000 * 60 * 60 * 24)
+        (slotDate - today) / (1000 * 60 * 60 * 24),
       );
 
       let remainingSlots = 1;
@@ -68,7 +68,7 @@ const SlotAvailability = () => {
       if (daysUntilSlot <= 0) {
         // Try to find the next slot after this one
         const nextSlot = slotDates.find(
-          (slot) => new Date(slot.date) > slotDate
+          (slot) => new Date(slot.date) > slotDate,
         );
         if (nextSlot) {
           remainingSlots = 1;
@@ -105,12 +105,11 @@ const SlotAvailability = () => {
 
   return (
     <div className="w-full flex justify-center mb-8">
-      <div className="inline-flex items-center rounded-full bg-[#10172a] px-3 py-3 shadow-lg border border-[#232946]">
-        <span className="bg-[#16f2b3] text-gray-900 font-semibold px-4 py-1 rounded-full mr-2 text-sm">
-          {availableSlots} spot{availableSlots !== 1 ? "s" : ""} left
-        </span>
-        <span className="text-gray-300 text-sm font-medium">
-          For {nextDate} <span aria-hidden="true"></span>
+      <div className="inline-flex items-center rounded-full bg-gray-100 px-4 py-2 border border-gray-200">
+        <div className="w-2 h-2 rounded-full bg-emerald-500 mr-2"></div>
+        <span className="text-gray-600 text-sm font-medium">
+          {availableSlots} spot{availableSlots !== 1 ? "s" : ""} available for{" "}
+          {nextDate}
         </span>
       </div>
     </div>

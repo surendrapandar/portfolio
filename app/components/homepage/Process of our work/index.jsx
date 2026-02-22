@@ -51,25 +51,23 @@ export default function ProcessSteps() {
   ];
 
   return (
-    <section className="bg-gray-900 py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section className="bg-white py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
-      <div className="absolute top-20 left-10 w-72 h-72 bg-[#16f2b3] rounded-full mix-blend-multiply filter blur-xl opacity-5 animate-pulse"></div>
-      <div className="absolute bottom-20 right-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-5 animate-pulse"></div>
+      <div className="absolute inset-0 bg-white"></div>
 
       <div className="max-w-4xl mx-auto relative z-10 sm:mt-0 -mt-10">
         {/* Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-800 border border-gray-700 mb-6">
-            <CheckCircle className="w-4 h-4 text-[#16f2b3] mr-2" />
-            <span className="text-sm text-gray-300 font-medium">
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-100 border border-gray-200 mb-6">
+            <CheckCircle className="w-4 h-4 text-black mr-2" />
+            <span className="text-sm text-gray-600 font-medium">
               Our Process
             </span>
           </div>
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            How It <span style={{ color: "#16f2b3" }}>Works</span>
+          <h2 className="text-4xl md:text-6xl font-bold text-black mb-6">
+            How It <span className="text-black">Works</span>
           </h2>
-          <p className="text-[16px] sm:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[16px] sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Our proven 5-step process ensures your project is delivered on time,
             within budget, and exceeds expectations
           </p>
@@ -78,7 +76,7 @@ export default function ProcessSteps() {
         {/* Process Steps */}
         <div className="relative">
           {/* Connecting Line */}
-          <div className="absolute left-8 top-16 bottom-16 w-0.5 bg-gradient-to-b from-[#16f2b3] via-blue-500 to-[#16f2b3] opacity-30 hidden md:block"></div>
+          <div className="absolute left-8 top-16 bottom-16 w-0.5 bg-gray-200 hidden md:block"></div>
 
           {steps.map((step, index) => {
             const IconComponent = step.icon;
@@ -97,11 +95,11 @@ export default function ProcessSteps() {
                 >
                   {/* Step Number & Icon */}
                   <div className="flex-shrink-0 relative">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#16f2b3] to-blue-500 flex items-center justify-center shadow-lg shadow-[#16f2b3]/25 group-hover:shadow-[#16f2b3]/40 transition-all duration-300">
-                      <IconComponent className="w-8 h-8 text-gray-900" />
+                    <div className="w-16 h-16 rounded-2xl bg-white border border-gray-200 flex items-center justify-center shadow-sm group-hover:shadow-md transition-all duration-300">
+                      <IconComponent className="w-8 h-8 text-black" />
                     </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-gray-800 border-2 border-[#16f2b3] flex items-center justify-center">
-                      <span className="text-xs font-bold text-[#16f2b3]">
+                    <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-white border-2 border-gray-200 flex items-center justify-center">
+                      <span className="text-xs font-bold text-black">
                         {step.number}
                       </span>
                     </div>
@@ -111,32 +109,32 @@ export default function ProcessSteps() {
                   <div
                     className={`flex-1 group ${isEven ? "md:text-right" : ""}`}
                   >
-                    <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-[#16f2b3]/30 transition-all duration-500 hover:transform hover:scale-[1.02] hover:shadow-xl hover:shadow-[#16f2b3]/10">
+                    <div className="bg-white backdrop-blur-sm rounded-2xl p-8 border border-gray-200 hover:border-gray-300 transition-all duration-500 hover:transform hover:scale-[1.02] hover:shadow-lg">
                       <div className="flex items-center gap-3 mb-4">
                         <div
-                          className={`px-3 py-1 rounded-full bg-[#16f2b3]/10 border border-[#16f2b3]/20 ${
+                          className={`px-3 py-1 rounded-full bg-gray-100 border border-gray-200 ${
                             isEven ? "md:order-2" : ""
                           }`}
                         >
-                          <span className="text-sm font-semibold text-[#16f2b3]">
+                          <span className="text-sm font-semibold text-black">
                             Step {step.number}
                           </span>
                         </div>
                       </div>
 
-                      <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-[#16f2b3] transition-colors duration-300">
+                      <h3 className="text-2xl font-bold text-black mb-4 group-hover:text-gray-700 transition-colors duration-300">
                         {step.title}
                       </h3>
 
-                      <p className="text-gray-400 leading-relaxed text-lg">
+                      <p className="text-gray-600 leading-relaxed text-lg">
                         {step.description}
                       </p>
 
                       {/* Progress Indicator */}
                       <div className="mt-6 flex items-center gap-2">
-                        <div className="flex-1 h-1 bg-gray-700 rounded-full overflow-hidden">
+                        <div className="flex-1 h-1 bg-gray-200 rounded-full overflow-hidden">
                           <div
-                            className="h-full bg-gradient-to-r from-[#16f2b3] to-blue-500 rounded-full transition-all duration-1000 ease-out"
+                            className="h-full bg-black rounded-full transition-all duration-1000 ease-out"
                             style={{
                               width: `${((index + 1) / steps.length) * 100}%`,
                             }}
@@ -153,7 +151,7 @@ export default function ProcessSteps() {
                 {/* Arrow Connector */}
                 {index < steps.length - 1 && (
                   <div className="flex justify-center mt-8 md:hidden">
-                    <ArrowDown className="w-6 h-6 text-[#16f2b3] animate-bounce" />
+                    <ArrowDown className="w-6 h-6 text-gray-400 animate-bounce" />
                   </div>
                 )}
               </div>

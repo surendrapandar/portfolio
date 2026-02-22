@@ -5,10 +5,10 @@ import { ChevronDown } from "lucide-react";
 
 function AccordionItem({ question, answer, isOpen, onToggle }) {
   return (
-    <div className="bg-slate-800/80 rounded-lg border border-slate-600 mb-4">
+    <div className="bg-white rounded-lg border border-gray-200 mb-4">
       <button
         onClick={onToggle}
-        className="w-full text-left px-6 py-6 flex justify-between items-center text-white hover:text-teal-400 transition-colors duration-200"
+        className="w-full text-left px-6 py-6 flex justify-between items-center text-black hover:text-gray-600 transition-colors duration-200"
       >
         <span className="text-lg font-medium pr-4">{question}</span>
         <ChevronDown
@@ -22,7 +22,7 @@ function AccordionItem({ question, answer, isOpen, onToggle }) {
           isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="px-6 pb-6 pt-2 text-slate-300 leading-relaxed">
+        <div className="px-6 pb-6 pt-2 text-gray-600 leading-relaxed">
           {answer}
         </div>
       </div>

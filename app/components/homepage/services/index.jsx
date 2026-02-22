@@ -37,24 +37,23 @@ export default function OurServices() {
   ];
 
   return (
-    <section className="relative bg-gray-900 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden ">
+    <section className="relative bg-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden ">
       {/* Decorative Backgrounds */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-[#16f2b3] rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse"></div>
-      <div className="absolute bottom-20 right-10 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse"></div>
+      <div className="absolute inset-0 bg-white"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-20">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-800 border border-gray-700 mb-6 ">
-            <Cloud className="w-4 h-4 text-[#16f2b3] mr-2" />
-            <span className="text-sm text-gray-300 font-medium">
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-100 border border-gray-200 mb-6 ">
+            <Cloud className="w-4 h-4 text-black mr-2" />
+            <span className="text-sm text-gray-600 font-medium">
               Our Services
             </span>
           </div>
-          <h2 className="text-4xl sm:text-6xl font-bold text-white mb-6">
-            What We <span style={{ color: "#16f2b3" }}>Offer</span>
+          <h2 className="text-4xl sm:text-6xl font-bold text-black mb-6">
+            What We <span className="text-black">Offer</span>
           </h2>
-          <p className="sm:text-xl text-[16px] text-gray-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="sm:text-xl text-[16px] text-gray-600 max-w-2xl mx-auto leading-relaxed">
             We only focus on offering services that we can deliver exceptionally
             well.
           </p>
@@ -67,7 +66,7 @@ export default function OurServices() {
             return (
               <div
                 key={index}
-                className="relative group bg-gradient-to-br from-gray-800/80 to-gray-900/80 rounded-3xl p-10 border border-gray-700/60 hover:border-[#16f2b3]/40 shadow-lg shadow-[#16f2b3]/10 hover:shadow-xl hover:shadow-[#16f2b3]/20 transition-all duration-500 hover:scale-[1.03]"
+                className="relative group bg-white rounded-3xl p-10 border border-gray-200 hover:border-gray-300 shadow-sm hover:shadow-lg transition-all duration-500 hover:scale-[1.03]"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Icon with Gradient Glow */}
@@ -75,19 +74,19 @@ export default function OurServices() {
                   className={`mb-8 sm:flex sm:items-left sm:justify-left items-center justify-center flex`}
                 >
                   <div
-                    className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center shadow-lg shadow-[#16f2b3]/25 group-hover:shadow-[#16f2b3]/40 transition-all duration-300 animate-fade-in-up`}
+                    className={`w-16 h-16 rounded-2xl bg-gray-100 border border-gray-200 flex items-center justify-center shadow-sm group-hover:shadow-md transition-all duration-300 animate-fade-in-up`}
                   >
-                    <IconComponent className="w-8 h-8 text-gray-900" />
+                    <IconComponent className="w-8 h-8 text-black" />
                   </div>
                 </div>
                 {/* Title */}
-                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-[#16f2b3] transition-colors duration-300 items-center flex justify-center">
+                <h3 className="text-2xl font-bold text-black mb-4 group-hover:text-gray-700 transition-colors duration-300 items-center flex justify-center">
                   {service.title}
                 </h3>
                 {/* Description */}
-                <p className="text-gray-400 leading-relaxed sm:text-lg text-[14px] text-center">
+                <p className="text-gray-600 leading-relaxed sm:text-lg text-[14px] text-center">
                   {/* Responsive 3-line clamp for mobile, limit max width and increase font size */}
-                  <span className="block text-center text-gray-400 leading-relaxed text-base sm:text-lg mx-auto max-w-[250px] sm:max-w-full line-clamp-3">
+                  <span className="block text-center text-gray-600 leading-relaxed text-base sm:text-lg mx-auto max-w-[250px] sm:max-w-full line-clamp-3">
                     {service.description}
                   </span>
                 </p>

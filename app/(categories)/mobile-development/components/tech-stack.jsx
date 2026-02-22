@@ -25,17 +25,17 @@ export default function TechStack() {
 
   const TechSection = ({ title, techs }) => (
     <div className="mb-16">
-      <h3 className="text-2xl font-bold mb-8 text-white">{title}</h3>
+      <h3 className="text-2xl font-bold mb-8 text-black">{title}</h3>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
         {techs.map((tech) => {
           const IconComponent = tech.icon;
           return (
             <div
               key={tech.name}
-              className="text-center p-8 rounded-xl bg-gray-800 shadow-lg hover:bg-gray-700 transition-all duration-300 transform hover:-translate-y-1"
+              className="text-center p-8 rounded-xl bg-white border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
             >
-              <IconComponent className="w-20 h-20 mx-auto mb-6 text-blue-500" />
-              <h3 className="font-semibold text-gray-100">{tech.name}</h3>
+              <IconComponent className="w-20 h-20 mx-auto mb-6 text-black" />
+              <h3 className="font-semibold text-black">{tech.name}</h3>
             </div>
           );
         })}
@@ -44,9 +44,9 @@ export default function TechStack() {
   );
 
   return (
-    <section className="py-24 bg-gray-900">
+    <section className="py-24 bg-white">
       <div className="container px-4">
-        <h2 className="text-3xl font-bold text-center mb-16 text-white">
+        <h2 className="text-3xl font-bold text-center mb-16 text-black">
           Mobile Development Technologies
         </h2>
         <TechSection title="Frontend & Mobile" techs={technologies.frontend} />

@@ -31,7 +31,7 @@ export default function AnalyticsSection() {
       {
         threshold: 0.3, // Trigger when 30% of the section is visible
         rootMargin: "-50px 0px -50px 0px",
-      }
+      },
     );
 
     const refNode = sectionRef.current;
@@ -52,9 +52,9 @@ export default function AnalyticsSection() {
       value: 15,
       label: "Projects Completed",
       description: "Successfully delivered",
-      color: "from-black-500 to-blue-600",
-      bgColor: "bg-black-500/10",
-      borderColor: "border-blue-500/20",
+      color: "from-gray-800 to-black",
+      bgColor: "bg-gray-100",
+      borderColor: "border-gray-200",
       suffix: "+",
     },
     {
@@ -62,9 +62,9 @@ export default function AnalyticsSection() {
       value: 10,
       label: "Happy Clients",
       description: "Satisfied customers",
-      color: "from-black-500 to-blue-600",
-      bgColor: "bg-black-500/10",
-      borderColor: "border-blue-500/20",
+      color: "from-gray-800 to-black",
+      bgColor: "bg-gray-100",
+      borderColor: "border-gray-200",
       suffix: "+",
     },
     {
@@ -72,9 +72,9 @@ export default function AnalyticsSection() {
       value: 20,
       label: "Following On Social Media",
       description: "Active community",
-      color: "from-black-500 to-blue-600",
-      bgColor: "bg-black-500/10",
-      borderColor: "border-purple-500/20",
+      color: "from-gray-800 to-black",
+      bgColor: "bg-gray-100",
+      borderColor: "border-gray-200",
       suffix: "K+",
     },
     {
@@ -82,9 +82,9 @@ export default function AnalyticsSection() {
       value: 6,
       label: "Years of Experience",
       description: "Professional expertise",
-      color: "from-black-500 to-blue-600",
-      bgColor: "bg-black-500/10",
-      borderColor: "border-orange-500/20",
+      color: "from-gray-800 to-black",
+      bgColor: "bg-gray-100",
+      borderColor: "border-gray-200",
       suffix: "+",
     },
   ];
@@ -92,20 +92,18 @@ export default function AnalyticsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-gray-900 py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative bg-white py-20 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900"></div>
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#16f2b3] rounded-full mix-blend-multiply filter blur-3xl opacity-5 animate-pulse"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-5 animate-pulse"></div>
+      <div className="absolute inset-0 bg-white"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            WHY <span style={{ color: "#16f2b3" }}>US</span>{" "}
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">
+            WHY <span className="text-black">US</span>{" "}
           </h2>
-          <p className="text-[16px] sm:text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-[16px] sm:text-xl text-gray-600 max-w-2xl mx-auto">
             Experience + Proven Track Record + Client Satisfaction = Success
           </p>
         </div>{" "}

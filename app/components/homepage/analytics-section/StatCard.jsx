@@ -69,19 +69,19 @@ const StatCard = ({ stat, isVisible, index, startCounting }) => {
 
         {/* Value */}
         <div className="mb-2 text-center md:text-left">
-          <span className="text-3xl font-bold text-white">
+          <span className="text-3xl font-bold text-black">
             {displayValue}
             {startCounting && displayValue > 0 ? stat.suffix : ""}
           </span>
         </div>
 
         {/* Label */}
-        <h3 className="text-lg font-semibold text-white mb-1 text-center md:text-left">
+        <h3 className="text-lg font-semibold text-black mb-1 text-center md:text-left">
           {stat.label}
         </h3>
 
         {/* Description */}
-        <p className="text-sm text-gray-400 text-center md:text-left">
+        <p className="text-sm text-gray-600 text-center md:text-left">
           {stat.description}
         </p>
 

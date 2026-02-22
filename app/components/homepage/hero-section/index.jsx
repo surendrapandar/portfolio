@@ -22,7 +22,7 @@ function HeroSection() {
 
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
   useEffect(() => {
-    const services = ["Product", "Startup", "AI Agent"];
+    const services = ["Product", "Startup"];
     setIsVisible(true);
 
     const interval = setInterval(() => {
@@ -41,13 +41,6 @@ function HeroSection() {
     <div className="mt-5 px-2 sm:px-4 ">
       {/* Background Elements */}
 
-      {/* Floating Elements */}
-      <div className="absolute inset-0 -z-5">
-        <div className="absolute top-20 left-20 w-20 h-20 bg-[#16f2b3]/20 rounded-full blur-xl animate-pulse"></div>
-        <div className="absolute top-40 right-32 w-32 h-32 bg-blue-500/20 rounded-full blur-2xl animate-pulse delay-1000"></div>
-        <div className="absolute bottom-40 left-1/4 w-24 h-24 bg-purple-500/20 rounded-full blur-xl animate-pulse delay-2000"></div>
-      </div>
-
       <div className="container mx-auto px-2 sm:px-4 relative z-10 ">
         {/* Slot Availability at the top */}
         <SlotAvailability />
@@ -61,10 +54,10 @@ function HeroSection() {
                 : "opacity-0 translate-y-8"
             }`}
           >
-            <h1 className="text-5xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-center leading-tight">
+            <h1 className="text-5xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-center leading-tight tracking-tight text-black">
               Launch your{" "}
               <span
-                className={`text-[#16f2b3] inline-block min-w-[180px] sm:min-w-[350px] transition-all duration-500 ${
+                className={`inline-block min-w-[180px] sm:min-w-[350px] transition-all duration-500 ${
                   isAnimating ? "opacity-0 scale-95" : "opacity-100 scale-100"
                 }`}
               >
@@ -78,22 +71,7 @@ function HeroSection() {
                 <div className="mb-2" />
                 in Just{" "}
                 <span className="relative inline-block">
-                  <span className="relative z-10">21 Days</span>
-                  <div className="absolute -inset-1 sm:-inset-2 bg-gradient-to-r from-[#16f2b3]/20 to-blue-500/20 blur-lg rounded-lg"></div>
-                  <svg
-                    className="absolute w-full -bottom-1 sm:-bottom-2 z-10"
-                    height="8"
-                    viewBox="0 0 100 8"
-                    preserveAspectRatio="none"
-                  >
-                    <path
-                      d="M0,4 Q25,0 50,4 T100,4"
-                      fill="none"
-                      stroke="#16f2b3"
-                      strokeWidth="3"
-                      className="animate-pulse"
-                    />
-                  </svg>
+                  <span className="relative z-10">21 Days.</span>
                 </span>
               </span>
             </h1>
@@ -108,9 +86,9 @@ function HeroSection() {
             }`}
           >
             <div className="text-center space-y-4 sm:space-y-6">
-              <p className=" text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed px-2">
+              <p className=" text-xl md:text-2xl text-gray-500 max-w-3xl mx-auto leading-relaxed px-2">
                 From concept to launch in{" "}
-                <span className="text-[#16f2b3] font-semibold">21 days</span> or
+                <span className="text-black font-semibold">21 days</span> or
                 less. Get a professional, scalable product that drives results.
               </p>
 
@@ -134,14 +112,14 @@ function HeroSection() {
                 ].map((benefit, index) => (
                   <div
                     key={index}
-                    className="flex items-center gap-3 bg-gray-800/30 backdrop-blur-sm px-4 py-3 rounded-lg border border-gray-700/50"
+                    className="flex items-center gap-3 bg-white px-4 py-3 rounded-lg border border-gray-200 shadow-sm"
                   >
-                    <benefit.icon className="w-5 h-5 text-[#16f2b3]" />
+                    <benefit.icon className="w-5 h-5 text-black" />
                     <div className="text-left">
-                      <div className="text-white font-medium text-sm">
-                        {benefit.text}
+                      <div className="text-black font-medium text-sm">
+                        {benefit.title}
                       </div>
-                      <div className="text-gray-400 text-xs">
+                      <div className="text-gray-500 text-xs">
                         {benefit.desc}
                       </div>
                     </div>
@@ -159,32 +137,26 @@ function HeroSection() {
                 : "opacity-0 translate-y-8"
             }`}
           >
-            <div className="flex flex-row gap-3 sm:gap-4 justify-center items-center w-full">
+            <div className="flex flex-row gap-6 sm:gap-8 justify-center items-center w-full mt-8">
               <Link
                 className="flex items-center gap-3"
                 href="https://calendly.com/surendrapandar/30min"
               >
-                <Button className="bg-[#16f2b3] hover:bg-[#37e0b0] px-6 py-4 sm:px-8 sm:py-6 rounded-xl shadow-2xl transform transition-all hover:scale-105 hover:shadow-[#16f2b3]/25 group min-w-[100px] sm:min-w-[180px]">
-                  <CalendarRange className="text-gray-800 text-base sm:text-xl" />
-                  <span className="text-gray-800 text-xs font-bold sm:text-xl">
+                <Button className="bg-black hover:bg-gray-800 text-white px-6 py-4 sm:px-8 sm:py-6 rounded-full shadow-md transform transition-all hover:scale-105 group min-w-[100px] sm:min-w-[180px]">
+                  <span className="text-white text-sm font-medium sm:text-lg">
                     <span className="block sm:hidden">Let&apos;s Talk</span>
                     <span className="hidden sm:block">
                       Let&apos;s Talk &amp; Build
                     </span>
                   </span>
-                  <ArrowRight className="text-gray-800 text-base sm:text-xl group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="text-white text-base sm:text-xl group-hover:translate-x-1 transition-transform -rotate-45" />
                 </Button>
               </Link>
 
-              <Link href="#ourwork">
-                <Button
-                  variant="outline"
-                  className="border-gray-600 text-gray-300 hover:text-white hover:border-[#16f2b3] px-4 py-3 sm:px-6 sm:py-4 rounded-xl transition-all hover:scale-105 min-w-[140px]"
-                >
-                  <span className="text-base sm:text-xl font-medium">
-                    View Past Work
-                  </span>
-                </Button>
+              <Link href="#ourwork" className="group flex items-center gap-2">
+                <span className="text-base sm:text-lg font-medium text-gray-600 hover:text-black transition-colors">
+                  View Past Work
+                </span>
               </Link>
             </div>
           </div>

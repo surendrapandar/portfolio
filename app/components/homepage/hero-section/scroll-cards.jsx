@@ -92,7 +92,7 @@ const ScrollCards = () => {
                 key={`${project.id}-${index}`}
                 className={`group relative flex-shrink-0 ${
                   project.id === 3 ? "w-[50rem]" : "w-[35rem]"
-                } h-96 bg-gray-800/50 backdrop-blur-sm rounded-xl border border-gray-700 overflow-hidden hover:border-[#16f2b3]/50 transition-all duration-300 hover:scale-105`}
+                } h-96 bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden hover:shadow-md transition-all duration-300 hover:scale-105`}
               >
                 <div className="relative w-full h-full overflow-hidden">
                   <Image
@@ -101,13 +101,13 @@ const ScrollCards = () => {
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/30 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
                 </div>
 
                 {/* Hover overlay */}
-                <div className="absolute inset-0 bg-[#16f2b3]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-            )
+            ),
           )}
         </div>
       </div>

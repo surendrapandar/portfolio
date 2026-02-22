@@ -36,20 +36,20 @@ export default function ProcessSection() {
   return (
     <section className="py-20">
       <div className="container px-4 mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">
+        <h2 className="text-3xl font-bold text-center mb-12 text-black">
           Development Process
         </h2>
         <div className="relative grid md:grid-cols-3 lg:grid-cols-5 gap-8">
           {developmentSteps.map((step, index) => (
             <div
               key={step.step}
-              className="relative bg-gray-900 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-800 flex flex-col items-center text-center"
+              className="relative bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 flex flex-col items-center text-center"
             >
               <div className="text-4xl mb-4">{step.icon}</div>
-              <h3 className="font-bold mb-2 text-gray-100">
+              <h3 className="font-bold mb-2 text-black">
                 {step.step}. {step.title}
               </h3>
-              <p className="text-gray-400 text-sm">{step.description}</p>
+              <p className="text-gray-600 text-sm">{step.description}</p>
             </div>
           ))}
         </div>

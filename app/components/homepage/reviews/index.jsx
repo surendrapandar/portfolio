@@ -21,18 +21,18 @@ function Reviews() {
   return (
     <section
       id="customers"
-      className="relative z-50 border-t my-12 lg:my-24 border-[#25213b] "
+      className="relative z-50 border-t my-12 lg:my-24 border-gray-200 "
     >
       <Image
         src="/section.svg"
         alt="Hero"
         width={1572}
         height={795}
-        className="absolute top-0 -z-10"
+        className="absolute top-0 -z-10 opacity-10"
       />
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl sm:text-4xl font-bold text-center text-white mb-24 mt-10">
-          People <span className="text-[#16f2b3]">Love</span> Working With US
+        <h2 className="text-3xl sm:text-4xl font-bold text-center text-black mb-24 mt-10">
+          People <span className="text-black">Love</span> Working With US
         </h2>
         <div className="max-w-6xl mx-auto ">
           <div

@@ -91,16 +91,16 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="ourwork" className="py-20 bg-gray-900">
+    <section id="ourwork" className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="sm:text-5xl text-4xl font-extrabold text-center text-white mb-20 -mt-10 sm:mt-0">
-          Our Recent <span className="text-[#16f2b3]">Work</span>
+        <h2 className="sm:text-5xl text-4xl font-extrabold text-center text-black mb-20 -mt-10 sm:mt-0">
+          Our Recent <span className="text-black">Work</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto -mt-10 sm:mt-0">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="relative bg-gradient-to-br from-gray-800 via-gray-850 to-gray-900 rounded-2xl overflow-hidden shadow-2xl hover:shadow-xl transition-all duration-300 ease-in-out transform hover:scale-105 border border-gray-700"
+              className="relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out transform hover:scale-105 border border-gray-200"
             >
               {/* Project Image */}
               <div className="relative overflow-hidden h-48">
@@ -111,15 +111,15 @@ const Projects = () => {
                   height={300}
                   className="w-full h-full transition-transform duration-300 transform hover:scale-110 object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
               </div>
 
               {/* Content */}
               <div className="p-6 flex flex-col">
-                <h3 className="text-2xl font-bold text-white mb-3">
+                <h3 className="text-2xl font-bold text-black mb-3">
                   {project.title}
                 </h3>
-                <p className="text-gray-300 mb-4 leading-relaxed">
+                <p className="text-gray-600 mb-4 leading-relaxed">
                   {project.description}
                 </p>
 
@@ -128,7 +128,7 @@ const Projects = () => {
                   {project.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className="bg-transparent border border-gray-500 text-gray-300 text-xs px-3 py-1.5 rounded-full font-medium hover:border-[#16f2b3] hover:text-[#16f2b3] transition-colors duration-200"
+                      className="bg-gray-100 border border-gray-200 text-gray-600 text-xs px-3 py-1.5 rounded-full font-medium hover:border-gray-300 hover:text-black transition-colors duration-200"
                     >
                       {tag}
                     </span>
@@ -139,10 +139,12 @@ const Projects = () => {
                 <div className="mt-auto">
                   <Link
                     href={project.demo}
-                    className="text-white hover:text-blue-500 transition-all duration-200 flex items-center space-x-2"
+                    className="text-black hover:text-gray-600 transition-all duration-200 flex items-center space-x-2"
                     target="_blank"
                   >
-                    <span className="text-lg">Visit {project.title}</span>
+                    <span className="text-lg font-medium">
+                      Visit {project.title}
+                    </span>
                     <FiExternalLink size={20} />
                   </Link>
                 </div>

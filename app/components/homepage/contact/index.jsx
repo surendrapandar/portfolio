@@ -15,45 +15,45 @@ export default function ContactSection() {
     <div id="contact" className="relative py-16 lg:py-24">
       <div className="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          {/* <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          {/* <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">
             Let&apos;s Connect
           </h2>
-          <p className="mt-4 text-lg text-gray-300">
+          <p className="mt-4 text-lg text-gray-600">
             Ready to turn your idea into reality? Let&apos;s build something
             amazing together.
           </p> */}
         </div>
 
         {/* <div className="mt-16">
-          <div className="rounded-2xl bg-white/5 p-8 backdrop-blur-sm border w-[800px] h-[400px] border-white/10">
+          <div className="rounded-2xl bg-white p-8 border w-[800px] h-[400px] border-gray-200 shadow-sm">
             <div className="space-y-6">
               <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#16f2b3]/10">
-                  <MdAlternateEmail className="h-6 w-6 text-[#16f2b3]" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-100">
+                  <MdAlternateEmail className="h-6 w-6 text-black" />
                 </div>
-                <div className="text-white">
+                <div className="text-black">
                   <p className="text-sm font-medium">Email</p>
-                  <p className="mt-1">{personalData.email}</p>
+                  <p className="mt-1 text-gray-600">{personalData.email}</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#16f2b3]/10">
-                  <IoMdCall className="h-6 w-6 text-[#16f2b3]" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-100">
+                  <IoMdCall className="h-6 w-6 text-black" />
                 </div>
-                <div className="text-white">
+                <div className="text-black">
                   <p className="text-sm font-medium">Phone</p>
-                  <p className="mt-1">{personalData.phone}</p>
+                  <p className="mt-1 text-gray-600">{personalData.phone}</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#16f2b3]/10">
-                  <CiLocationOn className="h-6 w-6 text-[#16f2b3]" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-100">
+                  <CiLocationOn className="h-6 w-6 text-black" />
                 </div>
-                <div className="text-white">
+                <div className="text-black">
                   <p className="text-sm font-medium">Location</p>
-                  <p className="mt-1">{personalData.address}</p>
+                  <p className="mt-1 text-gray-600">{personalData.address}</p>
                 </div>
               </div>
             </div>
@@ -62,7 +62,7 @@ export default function ContactSection() {
               <Button
                 variant="outline"
                 size="icon"
-                className="h-10 w-10 rounded-full border-white/10 bg-white/5 hover:bg-[#16f2b3]hover:text-white"
+                className="h-10 w-10 rounded-full border-gray-200 bg-white hover:bg-gray-100 hover:text-black"
                 asChild
               >
                 <Link href={personalData.github} target="_blank">
@@ -72,7 +72,7 @@ export default function ContactSection() {
               <Button
                 variant="outline"
                 size="icon"
-                className="h-10 w-10 rounded-full border-white/10 bg-white/5 hover:bg-[#16f2b3] hover:text-white"
+                className="h-10 w-10 rounded-full border-gray-200 bg-white hover:bg-gray-100 hover:text-black"
                 asChild
               >
                 <Link href={personalData.linkedIn} target="_blank">
@@ -82,7 +82,7 @@ export default function ContactSection() {
               <Button
                 variant="outline"
                 size="icon"
-                className="h-10 w-10 rounded-full border-white/10 bg-white/5 hover:bg-[#16f2b3]hover:text-white"
+                className="h-10 w-10 rounded-full border-gray-200 bg-white hover:bg-gray-100 hover:text-black"
                 asChild
               >
                 <Link href={personalData.twitter} target="_blank">
@@ -92,7 +92,7 @@ export default function ContactSection() {
               <Button
                 variant="outline"
                 size="icon"
-                className="h-10 w-10 rounded-full border-white/10 bg-white/5 hover:bg-[#16f2b3]hover:text-white"
+                className="h-10 w-10 rounded-full border-gray-200 bg-white hover:bg-gray-100 hover:text-black"
                 asChild
               >
                 <Link href={personalData.youtube} target="_blank">
@@ -101,7 +101,7 @@ export default function ContactSection() {
               </Button>
             </div>
 
-            <Button className="rounded-full bg-[#16f2b3] mt-10">
+            <Button className="rounded-full bg-black text-white hover:bg-gray-800 mt-10 shadow-md">
               Add your start
             </Button>
           </div>

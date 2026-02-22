@@ -18,12 +18,12 @@ function WhyMe() {
   });
 
   return (
-    <section id="whyus" className="py-16 md:py-20 bg-[#1a1a2e]">
+    <section id="whyus" className="py-16 md:py-20 bg-white">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+        <h2 className="text-4xl md:text-5xl font-bold text-black mb-6">
           WHY US
         </h2>
-        <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-12 md:mb-16">
+        <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-12 md:mb-16">
           Because we are not just developers, we are your partners in success.
           we have a proven track record of delivering exceptional results for
           our clients.
@@ -38,7 +38,7 @@ function WhyMe() {
               key={index}
               className="flex flex-col items-center justify-center p-4"
             >
-              <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2">
+              <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-2">
                 {inView ? (
                   <CountUp
                     start={0}
@@ -50,7 +50,7 @@ function WhyMe() {
                   `0${stat.suffix}`
                 )}
               </div>
-              <p className="text-sm md:text-base text-gray-400">{stat.label}</p>
+              <p className="text-sm md:text-base text-gray-500">{stat.label}</p>
             </div>
           ))}
         </div>

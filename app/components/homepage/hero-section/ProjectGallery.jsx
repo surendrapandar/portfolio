@@ -26,7 +26,7 @@ export default function ProjectGallery() {
       img.isMobile ||
       img.src === "/image/mobile-black.png" ||
       img.src === "/image/Frame.png",
-    []
+    [],
   );
 
   // Function to calculate the width of one set of images for scrolling
@@ -53,7 +53,7 @@ export default function ProjectGallery() {
       });
       return totalWidth;
     },
-    []
+    [],
   );
 
   useEffect(() => {
@@ -81,7 +81,7 @@ export default function ProjectGallery() {
         const oneSetWidth = calculateOneSetWidth(
           windowWidth,
           images,
-          isMobileImage
+          isMobileImage,
         );
         if (scrollAmount >= oneSetWidth) {
           scrollAmount = 0;
@@ -133,7 +133,7 @@ export default function ProjectGallery() {
   if (!isMounted) {
     return (
       <section className="w-full pt-10 pb-16">
-        <div className="w-full h-[200px] bg-gray-800 animate-pulse"></div>
+        <div className="w-full h-[200px] bg-gray-200 animate-pulse"></div>
       </section>
     );
   }
@@ -174,7 +174,7 @@ export default function ProjectGallery() {
             }
 
             console.log(
-              `Card ${idx}: windowWidth=${windowWidth}, isMobileImg=${isMobileImg}, minWidth=${minWidth}, height=${height}`
+              `Card ${idx}: windowWidth=${windowWidth}, isMobileImg=${isMobileImg}, minWidth=${minWidth}, height=${height}`,
             );
 
             return (
@@ -183,7 +183,7 @@ export default function ProjectGallery() {
                 className={
                   isMobileImg
                     ? "flex-shrink-0 flex items-center justify-center bg-transparent"
-                    : "flex-shrink-0 rounded-3xl overflow-hidden relative group hover:scale-105 transition-all duration-300 shadow-2xl bg-gradient-to-br from-gray-800 to-gray-900 border border-[#16f2b3]/20 backdrop-blur-sm"
+                    : "flex-shrink-0 rounded-3xl overflow-hidden relative group hover:scale-105 transition-all duration-300 shadow-lg bg-white border border-gray-200"
                 }
                 style={{
                   minWidth,
@@ -208,7 +208,7 @@ export default function ProjectGallery() {
                         alignItems: "stretch",
                         justifyContent: "center",
                         overflow: "hidden",
-                        background: "#18181b",
+                        background: "#f3f4f6",
                         padding: 0,
                       }}
                     >
@@ -240,7 +240,7 @@ export default function ProjectGallery() {
                         alignItems: "center",
                         justifyContent: "center",
                         overflow: "hidden",
-                        background: isMobileImg ? "transparent" : "#18181b",
+                        background: isMobileImg ? "transparent" : "#f3f4f6",
                         padding: 0,
                       }}
                     >
