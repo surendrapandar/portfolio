@@ -46,7 +46,7 @@ export const metadata = {
     siteName: "Surendra Pandar",
     images: [
       {
-        url: "https://i.ibb.co/hF6GBWVF/final-sku-mokup.png",
+        url: "https://i.ibb.co/whS3TVMv/Untitled-design-17.png",
         width: 1200,
         height: 630,
         alt: "Surendra Pandar OG Image",
@@ -60,7 +60,7 @@ export const metadata = {
     title: "Surendra Pandar",
     description: "Building the future with code.",
     creator: "@surendra_pandar", // Replace with your Twitter handle
-    images: ["https://i.ibb.co/hF6GBWVF/final-sku-mokup.png"],
+    images: ["https://i.ibb.co/whS3TVMv/Untitled-design-17.png"],
   },
   robots: {
     index: true,
